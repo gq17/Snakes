@@ -1,0 +1,15 @@
+function Iout = ImgPrc(I)
+% Preprocessing of the input image
+% 22/03/2016 By GUO Qiang
+
+% Histogram equaliztion
+Iout = histeq(I, 200);
+
+%Iout = imadjust(I);
+
+% Histogram specialization
+Thd = 0.
+
+% Median filtering
+
+
