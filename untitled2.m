@@ -1,23 +1,12 @@
-clear all; close all;
-%heartVideo = VideoReader('FETT4C.avi');
-%heartVideo = VideoReader('NOBECOURT3cvg.avi');
-heartVideo = VideoReader('benis4c.avi');
-heartImg = heartVideo.read();
-frames = heartVideo.NumberOfFrames;
-img = heartImg(:,:,:,7);
-I=im2double(img);
+%clear all; close all;
 
-if(size(I,3)==3), I=rgb2gray(I); end
-
+r = 5;
+a = 0:0.01*pi:2*pi-0.01*pi;
+x = r*cos(a);
+y = r*sin(a);
 figure;
-imshow(I, []);
-figure;
-imhist(I)
+plot(x,y);
 
-Iout = ImgPrc(I);
+Pxy = [x', y'];
 
-figure;
-imshow(Iout,[]);
-figure;
-imhist(Iout)
-
+Qxy = computeCurvature(Pxy, 1);

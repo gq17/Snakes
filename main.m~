@@ -75,7 +75,7 @@ end
 %% features extraction
 % Potential choice: the divergence, curvature, 
 
-% Compute and show the curvature
+% Compute the curvature
 Q = computeCurvature(O,4);
 
 
