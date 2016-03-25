@@ -59,7 +59,7 @@ for x = 2:frames
 end
 
 %% Compute the volume of the left ventricle, record the change
-[Rat, Vol] = ComputeVol(O);
+[Rat, Vol] = ComputeArea(O);
 
 %% Show the contour change of the LV
 figure;

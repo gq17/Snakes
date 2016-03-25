@@ -1,8 +1,18 @@
-function [Rat, Vol] = ComputeVol(P)
-% This function computes the volume of the heart chamber 
-% with the coordinates of the snake
+function [Rat, Vol] = ComputeArea(P)
+% This function computes the volume of the heart chamber with the 
+% coordinates of the snake. The current method is coarse and could be
+% improved later.
 
-% By GUO Qiang 18/03/2016
+% [Rat, Vol] = ComputeArea(P)
+
+% Input 
+% P: the contour points with coordinates
+
+% Output
+% Vol: the area of the contour
+% Rat: the ratio between the smallest area and the biggest one
+
+% By GUO Qiang 18/03/2016 at ENS
 
 num = size(P);
 n = num(3);
