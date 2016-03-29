@@ -58,8 +58,14 @@ for x = 2:frames
     P = ContourIte(Pcopy, O(:,:,x));
 end
 
-%% Compute the area of the left ventricle, record the change
-[Rat, Vol] = ComputeArea(O);
+%% Linear resampling of the contour
+n = 1;
+for i=1:size(O,3)
+    % Linear resampling to get more accurate result
+    dis=[0;cumsum(sqrt(sum((O(2:end,:,i)-O(1:end-1,:,i)).^2,2)))];
+    O(:,1,i) = interp1(dis,O(:,1,i),linspace(0,dis(end),floor(size(O,1)*n)));
+    O(:,2,i) = interp1(dis,O(:,2,i),linspace(0,dis(end),floor(size(O,1)*n)));
+end
 
 %% Show the contour change of the LV
 figure;
@@ -75,9 +81,17 @@ end
 %% features extraction
 % Potential choice: the divergence, curvature, 
 
-% Compute and show the curvature
-Q = computeCurvature(O,4);
+% Compute the area of the left ventricle, record the change
+[Rat, Vol] = ComputeArea(O);
 
+% Compute and show the curvature
+Q = computeCurvature(O);
+
+% Compute the distance between points in LV.
+DistArray = ComputeDist(O);
+
+% Compute the distance between points and the center in LV.
+DistArrayC = ComputeDistCentral(O);
 
 
 

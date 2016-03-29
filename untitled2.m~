@@ -10,7 +10,6 @@ figure;
 plot(x,y);
 
 Pxy = [x', y'];
-Pxy1(:,:,1) = Pxy;
-Pxy1(:,:,2) = Pxy;
+P
 
-Qxy = computeCurvature(Pxy1);
+Qxy = computeCurvature(Pxy);
