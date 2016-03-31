@@ -31,7 +31,10 @@ end
 Vol = Vol/max(Vol);  
 
 % Show the results
-figure;plot(Vol); ylim([0, max(Vol)*1.1]);
+figure;
+plot(Vol); 
+ylim([0, max(Vol)*1.1]);
+title('The change of area of the LV');
 
 % The ratio between the min and the max
 Rat = min(Vol)/max(Vol);

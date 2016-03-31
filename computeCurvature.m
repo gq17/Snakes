@@ -19,6 +19,7 @@ for i=1:size(P,3)
 %     dx = gradient(P(:,1,i));
 %     dy = gradient(P(:,2,i));
 %     Q(:,i) = gradient(atan2(dy,dx))./hypot(dx,dy);
+%     The above formula has some extrema in some points.
     x = P(:,1,i); y = P(:,2,i);
     xe = [x(3);x;x(end-2)];ye = [y(3);y;y(end-2)];
     dx = diff(xe); dy = diff(ye);
@@ -28,11 +29,22 @@ for i=1:size(P,3)
     Q(:,i) = 2*(dxb.*dyf-dyb.*dxf)./sqrt((dxb.^2+dyb.^2).*(dxf.^2+dyf.^2).*(d2x.^2+d2y.^2));
 end
 
+% This is based on the idea that the curvature of a circle running through
+% three points is equal to four times the area of the triangle formed by
+% them, divided by the product of its three sides.
+
+% Formulas like this based on three nearby points
+% are very sensitive to noise in the data, and they work better if the
+% points are not spaced too closely together.
+
+
+
 % Show the results
 figure;
 for i=1:size(Q,2)
     plot(Q(:,i));
     %ylim([min(min(Q))-4 max(max(Q))+4]);
     title(['Curvature of contour of time: ', num2str(i)]);
+    % w = waitforbuttonpress;
     pause(1);
 end

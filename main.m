@@ -79,7 +79,7 @@ for i = 1:frames
 end
 
 %% features extraction
-% Potential choice: the divergence, curvature, 
+% Potential choice: the area, curvature, distance, barycenter
 
 % Compute the area of the left ventricle, record the change
 [Rat, Vol] = ComputeArea(O);
@@ -93,6 +93,8 @@ DistArray = ComputeDist(O);
 % Compute the distance between points and the center in LV.
 DistArrayC = ComputeDistCentral(O);
 
+% The motion of the barycenter
+MotionB = ComputeMotionBarycenter(O);
 
 
 

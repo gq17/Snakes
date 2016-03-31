@@ -6,7 +6,7 @@ function DistArray = ComputeDistCentral(P)
 
 % Input&Output
 % P: the contour set
-% DisArray: the distance array
+% DistArray: the distance array
 
 % By GUO Qiang 29/03/2016 at ENS 
 
