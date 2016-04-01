@@ -1,5 +1,5 @@
-function DistArray = ComputeDistCentral(P)
-% This function compute the distance betwen points and the center of the
+function DistArrayC = ComputeDistCentral(P)
+% This function compute the distance change betwen points and the center of the
 % contour
 
 % DistArray = ComputeDistCentral(P)
@@ -19,11 +19,13 @@ DistArray = sqrt((P(:,1,:) - cx).^2 + (P(:,2,:) - cy).^2);
 
 DistArray = squeeze(DistArray);
 
+DistArrayC = DistArray(:,2:size(DistArray,2)) - DistArray(:,1:size(DistArray,2)-1);
+
 % Show the results
 figure;
-for i=1:size(DistArray,2)
-    plot(DistArray(:,i));
-    ylim([min(min(DistArray))*0.8 max(max(DistArray))*1.2]);
-    title(['Distance distribution of time: ', num2str(i)]);
+for i=1:(size(DistArray,2)-1)
+    plot(DistArrayC(:,i));
+    %ylim([min(min(DistArray))*0.8 max(max(DistArray))*1.2]);
+    title(['Central distance change distribution of time: ', num2str(i)]);
     pause(1);
 end
