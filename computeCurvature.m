@@ -10,7 +10,7 @@ function Q = computeCurvature(P)
 % Q: curvature of all the contours
 
 % By GUO Qiang 25/03/2016 at ENS
-
+% http://fr.mathworks.com/matlabcentral/newsreader/view_thread/119458
 
 Q = zeros(size(P,1), size(P,3));
 

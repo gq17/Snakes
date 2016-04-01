@@ -5,9 +5,9 @@
 clear all; close all;
 
 %% Read the vidio, extract the frames/images
-%heartVideo = VideoReader('../FETT4C.avi');
+heartVideo = VideoReader('../FETT4C.avi');
 %heartVideo = VideoReader('../NOBECOURT3cvg.avi');
-heartVideo = VideoReader('../benis4c.avi');
+%heartVideo = VideoReader('../benis4c.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
@@ -92,6 +92,9 @@ DistArray = ComputeDist(O);
 
 % Compute the distance between points and the center in LV.
 DistArrayC = ComputeDistCentral(O);
+
+% Compute the distance between the left and right surface of the LV
+[DistList, EccenList] = ComputeDistLR(O);
 
 % The motion of the barycenter
 MotionB = ComputeMotionBarycenter(O);
