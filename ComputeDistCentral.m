@@ -1,4 +1,4 @@
-function DistArrayC = ComputeDistCentral(P)
+function [DistArrayC, DistSum] = ComputeDistCentral(P)
 % This function compute the distance change betwen points and the center of the
 % contour
 
@@ -6,7 +6,7 @@ function DistArrayC = ComputeDistCentral(P)
 
 % Input&Output
 % P: the contour set
-% DistArray: the distance array
+% DistArrayC: the distance array
 
 % By GUO Qiang 29/03/2016 at ENS 
 
@@ -20,6 +20,10 @@ DistArray = sqrt((P(:,1,:) - cx).^2 + (P(:,2,:) - cy).^2);
 DistArray = squeeze(DistArray);
 
 DistArrayC = DistArray(:,2:size(DistArray,2)) - DistArray(:,1:size(DistArray,2)-1);
+
+% sum of the distance
+DistSum = sum(abs(DistArrayC));
+DistSum2 = sum((DistArrayC).^2);
 
 % Show the results
 figure;
