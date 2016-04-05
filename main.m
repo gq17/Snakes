@@ -109,7 +109,10 @@ Peri = sum(DistArrayP);
 % Compute the correlation of the distance between points and the center
 CorrArray = ComputeCorrelation(O);
 
-%%
+% cross-correlation
+
+
+%% 
 
 
 

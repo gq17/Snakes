@@ -103,10 +103,16 @@ MotionB = ComputeMotionBarycenter(O);
 % Compute the distance between points
 DistArrayP = ComputeDistPoints(O);
 
+% Compute the perimeter of the contour
+Peri = sum(DistArrayP);
+
 % Compute the correlation of the distance between points and the center
 CorrArray = ComputeCorrelation(O);
 
-% Compute the perimeter of the contour
+% cross-correlation
+
+
+%% 
 
 
 
