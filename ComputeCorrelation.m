@@ -22,10 +22,10 @@ DistArray = squeeze(DistArray);
 CorrArray = corrcoef(DistArray);
 
 % Show the results
-figure;
-for i=1:(size(DistArray,2))
-    plot(DistArray(:,i));
-    %ylim([min(min(DistArray))*0.8 max(max(DistArray))*1.2]);
-    title(['Distance change distribution betwen points of time: ', num2str(i)]);
-    pause(1);
-end
+% figure;
+% for i=1:(size(DistArray,2))
+%     plot(DistArray(:,i));
+%     %ylim([min(min(DistArray))*0.8 max(max(DistArray))*1.2]);
+%     title(['Distance change distribution betwen points of time: ', num2str(i)]);
+%     pause(1);
+% end
