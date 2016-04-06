@@ -97,6 +97,9 @@ ffDistArray = ComputeDist(O);
 % Compute the distance between points and the center in LV.
 w = waitforbuttonpress;
 [cDistArray, DistSum] = ComputeDistCentral(O);
+figure;
+plot(DistSum);
+title('The sum of distance change');
 
 % Compute the distance between the left and right surface of the LV
 w = waitforbuttonpress;
@@ -107,7 +110,7 @@ w = waitforbuttonpress;
 MotionB = ComputeMotionBarycenter(O);
 
 %% feature extraction 2
-% Compute the distance between points
+% Compute the distance between points in one contour
 w = waitforbuttonpress;
 DistArrayP = ComputeDistPoints(O);
 
@@ -121,7 +124,6 @@ title('The perimeter change');
 % Compute the correlation of the distance between points and the center
 w = waitforbuttonpress;
 CorrArray = ComputeCorrelation(O);
-
 
 
 
