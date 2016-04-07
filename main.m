@@ -42,8 +42,6 @@ P=InterpolateContourPoints2D(P,Options.nPoints);
 Pcopy = P;
 
 % Preallocate for acceleration
-sizeP = size(I);
-%ImgDiff = zeros(sizeP(1), sizeP(2), frames-1);
 O = zeros(Options.nPoints, 2, frames);
 
 % Run snakes
