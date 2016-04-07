@@ -12,10 +12,10 @@ function DistArray = ComputeDist(P)
 % By GUO Qiang 29/03/2016 at ENS 
 
 num = floor(size(P,1)/2);
-DistArray = zeros(size(P,1), size(P,3));
-for i=1:size(P,1)
-    DistArray(i,:) = sqrt((P(i,1,:) - P(mod(num+i, size(P,1))+1,1,:)).^2 + (P(i,2,:) - P(mod(num+i, size(P,1))+1,2,:)).^2);
-end
+DistArray = sqrt((P(1:num,1,:) - P(num+1:num*2,1,:)).^2 + (P(1:num,2,:) - P(num+1:num*2,2,:)).^2);
+DistArray = squeeze(DistArray);
+
+for 
 
 % Show the results
 figure;
