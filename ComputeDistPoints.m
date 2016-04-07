@@ -18,7 +18,7 @@ DistArray = squeeze(DistArray);
 figure;
 for i=1:(size(DistArray,2))
     plot(DistArray(:,i));
-    %ylim([min(min(DistArray))*0.8 max(max(DistArray))*1.2]);
+    ylim([min(min(DistArray))*0.8 max(max(DistArray))*1.2]);
     title(['Distance change betwen points of time: ', num2str(i)]);
     pause(1);
 end
