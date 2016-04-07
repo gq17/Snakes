@@ -102,6 +102,9 @@ title('The sum of distance change');
 % Compute the distance between the left and right surface of the LV
 w = waitforbuttonpress;
 [DistList, EccenList] = ComputeDistLR(O);
+figure;
+plot(EccenList);
+title('The eccentricity change');
 
 % The motion of the barycenter
 w = waitforbuttonpress;

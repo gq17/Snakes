@@ -23,7 +23,7 @@ DistArrayC = DistArray(:,2:size(DistArray,2)) - DistArray(:,1:size(DistArray,2)-
 
 % sum of the distance
 DistSum = sum(abs(DistArrayC));
-DistSum2 = sum((DistArrayC).^2);
+%DistSum = sum((DistArrayC).^2);
 
 % Show the results
 figure;
