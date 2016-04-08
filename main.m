@@ -5,9 +5,9 @@
 clear all; close all;
 
 %% Read the vidio, extract the frames/images
-heartVideo = VideoReader('../FETT4C.avi');
+%heartVideo = VideoReader('../FETT4C.avi');
 %heartVideo = VideoReader('../NOBECOURT3cvg.avi');
-%heartVideo = VideoReader('../benis4c.avi');
+heartVideo = VideoReader('../benis4c.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
@@ -102,9 +102,6 @@ title('The sum of distance change');
 % Compute the distance between the left and right surface of the LV
 w = waitforbuttonpress;
 [DistList, EccenList] = ComputeDistLR(O);
-figure;
-plot(EccenList);
-title('The eccentricity change');
 
 % The motion of the barycenter
 w = waitforbuttonpress;
