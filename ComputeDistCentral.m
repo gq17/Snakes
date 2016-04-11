@@ -29,7 +29,7 @@ DistSum = sum(abs(DistArrayC));
 figure;
 for i=1:(size(DistArray,2)-1)
     plot(DistArrayC(:,i));
-    ylim([min(min(DistArray))*1.2 max(max(DistArray))*1.2]);
+    %ylim([min(min(DistArray))*1.2 max(max(DistArray))*1.2]);
     title(['Central distance change distribution of time: ', num2str(i)]);
     pause(1);
 end
