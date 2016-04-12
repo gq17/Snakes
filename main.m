@@ -132,7 +132,7 @@ CorrArray = ComputeCorrelation(O);
 % figure;plot(abs(fftvol));
 % 
 % % Curvature analyse
-% [x1, x2] = AnalsCurv(Curv);
+% CorrCurv = AnalsCurv(Curv);
 
 
 
