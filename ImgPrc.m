@@ -12,7 +12,7 @@ function Iout = ImgPrc(I)
 % 22/03/2016 By GUO Qiang at ENS
 
 % Histogram equaliztion
-Iout = histeq(I, 200);
+%Iout = histeq(I, 200);
 
 % Histogram specialization
 % Thd = 0.2;
