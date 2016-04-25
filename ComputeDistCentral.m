@@ -32,7 +32,7 @@ for i=1:(size(DistArray,2)-1)
     plot(DistArray(:,i));
     title(['Central distance distribution of time: ', num2str(i)]);
     subplot(2,1,2);
-    plot(DistArrayC(:,i+1));
+    plot(DistArrayC(:,i));
     %ylim([min(min(DistArray))*1.2 max(max(DistArray))*1.2]);
     title(['Central distance change distribution of time: ', num2str(i)]);
     pause(1);

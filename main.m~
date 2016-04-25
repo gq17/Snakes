@@ -85,10 +85,6 @@ end
 w = waitforbuttonpress;
 [Rat, Vol] = ComputeArea(O);
 
-% FFT of area change
-fftvol = fft(Vol);
-figure;plot(abs(fftvol));
-
 % Compute and show the curvature
 w = waitforbuttonpress;
 Curv = computeCurvature(O);
