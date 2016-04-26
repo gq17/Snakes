@@ -8,7 +8,7 @@ clear all; close all;
 %heartVideo = VideoReader('../FETT4C.avi');
 %heartVideo = VideoReader('../NOBECOURT3cvg.avi');
 %heartVideo = VideoReader('../benis4c.avi');
-heartVideo = VideoReader('../examples/normal/003.avi');
+heartVideo = VideoReader('../examples/abnormal/004.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
@@ -88,10 +88,13 @@ w = waitforbuttonpress;
 % FFT of area change
 fftvol = fft(Vol);
 figure;plot(abs(fftvol));
+title('Frequence of the area change');
 
 % Compute and show the curvature
 w = waitforbuttonpress;
 Curv = computeCurvature(O);
+figure;
+surf(Curv);
 
 % % Compute the distance between points in LV.
 % w = waitforbuttonpress;

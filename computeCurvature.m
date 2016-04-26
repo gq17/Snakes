@@ -37,12 +37,12 @@ end
 % are very sensitive to noise in the data, and they work better if the
 % points are not spaced too closely together.
 
-% Show the results
-figure;
-for i=1:size(Q,2)
-    plot(Q(:,i));
-    %ylim([min(min(Q))-4 max(max(Q))+4]);
-    title(['Curvature of contour of time: ', num2str(i)]);
-    %w = waitforbuttonpress;
-    pause(1);
-end
+% % Show the results
+% figure;
+% for i=1:size(Q,2)
+%     plot(Q(:,i));
+%     %ylim([min(min(Q))-4 max(max(Q))+4]);
+%     title(['Curvature of contour of time: ', num2str(i)]);
+%     %w = waitforbuttonpress;
+%     pause(1);
+% end
