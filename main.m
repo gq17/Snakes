@@ -55,6 +55,10 @@ for x = 2:frames
     %P = O(:,:,x);
     %P = clockwiseSnake(P);
     P = ContourIte(Pcopy, O(:,:,x));
+    % Linear resampling of the contour to avoid twist
+    dis=[0;cumsum(sqrt(sum((P(2:end,:)-P(1:end-1,:)).^2,2)))];
+    P(:,1) = interp1(dis,P(:,1),linspace(0,dis(end),floor(size(P,1))));
+    P(:,2) = interp1(dis,P(:,2),linspace(0,dis(end),floor(size(P,1))));
 end
 
 %% Linear resampling of the contour
@@ -67,16 +71,16 @@ end
 % end
 
 %% Show the contour change of the LV
-w = waitforbuttonpress;
-figure;
-imshow(I,[]), hold on; 
-title('Contour movement ')
-drawnow;
-for i = 1:frames
-    c = i/frames;
-    plot([O(:,2,i);O(1,2,i)],[O(:,1,i);O(1,1,i)],'-','Color',[c 1-c 0]);  drawnow
-    pause(1);
-end
+% w = waitforbuttonpress;
+% figure;
+% imshow(I,[]), hold on; 
+% title('Contour movement ')
+% drawnow;
+% for i = 1:frames
+%     c = i/frames;
+%     plot([O(:,2,i);O(1,2,i)],[O(:,1,i);O(1,1,i)],'-','Color',[c 1-c 0]);  drawnow
+%     pause(1);
+% end
 
 %% features extraction
 % Potential choice: the area, curvature, distance, barycenter
