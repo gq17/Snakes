@@ -8,14 +8,14 @@ clear all; close all;
 %heartVideo = VideoReader('../FETT4C.avi');
 %heartVideo = VideoReader('../NOBECOURT3cvg.avi');
 %heartVideo = VideoReader('../benis4c.avi');
-heartVideo = VideoReader('../examples/abnormal/004.avi');
+heartVideo = VideoReader('../examples/normal/005.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
 %% Set the options of the algorithm
 Options=struct;
 Options.Verbose=true;
-Options.Iterations=80;
+Options.Iterations=200;
 Options.nPoints = 200;
 Options.Wedge=2;
 Options.Wline=0;
@@ -86,7 +86,7 @@ end
 % Potential choice: the area, curvature, distance, barycenter
 
 % Compute the area of the left ventricle, record the change
-w = waitforbuttonpress;
+%w = waitforbuttonpress;
 [Rat, Vol] = ComputeArea(O);
 
 % FFT of area change
@@ -94,11 +94,11 @@ fftvol = fft(Vol);
 figure;plot(abs(fftvol));
 title('Frequence of the area change');
 
-% Compute and show the curvature
-w = waitforbuttonpress;
-Curv = computeCurvature(O);
-figure;
-surf(Curv);
+% % Compute and show the curvature
+% w = waitforbuttonpress;
+% Curv = computeCurvature(O);
+% figure;
+% surf(Curv);
 
 % % Compute the distance between points in LV.
 % w = waitforbuttonpress;
