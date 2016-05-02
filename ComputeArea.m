@@ -38,6 +38,14 @@ figure;
 plot(Vol); 
 ylim([0, max(Vol)*1.1]);
 title('The change of area of the LV');
+xlabel('The timeline');
+ylabel('the normalized area');
+legend('the changing function');
 
 % The ratio between the min and the max
 Rat = min(Vol)/max(Vol);
+
+% % FFT of area change
+% fftvol = fft(Vol);
+% figure;plot(abs(fftvol));
+% title('Frequence of the area change');

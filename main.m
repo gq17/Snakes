@@ -89,10 +89,6 @@ end
 %w = waitforbuttonpress;
 [Rat, Vol] = ComputeArea(O);
 
-% FFT of area change
-fftvol = fft(Vol);
-figure;plot(abs(fftvol));
-title('Frequence of the area change');
 
 % % Compute and show the curvature
 % w = waitforbuttonpress;
