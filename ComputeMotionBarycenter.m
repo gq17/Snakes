@@ -15,10 +15,13 @@ function  MotionB = ComputeMotionBarycenter(O)
 LocaB = mean(O);
 MotionB = squeeze(LocaB);
 
-DistB = sqrt((MotionB(1,:) - MotionB(1,1)).^2 + (MotionB(2,:) - MotionB(2,1)).^2);
+%DistB = sqrt((MotionB(1,:) - MotionB(1,1)).^2 + (MotionB(2,:) - MotionB(2,1)).^2);
 X = MotionB(1,:) - MotionB(1,1);
 Y = MotionB(2,:) - MotionB(2,1);
 
 figure;
 plot(X, Y, '-.');
 title('The movement of barycenter');
+xlabel('The horizonal direction');
+ylabel('The vertical direction');
+legend('The position change');

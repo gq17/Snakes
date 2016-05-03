@@ -31,7 +31,7 @@ for i=1:n
 end
 
 % Normalization of the volume
-Vol = Vol/max(Vol);  
+%Vol = Vol/max(Vol);  
 
 % Show the results
 figure;
@@ -39,8 +39,8 @@ plot(Vol);
 ylim([0, max(Vol)*1.1]);
 title('The change of area of the LV');
 xlabel('The timeline');
-ylabel('the normalized area');
-legend('the changing function');
+ylabel('The normalized area');
+legend('The area change');
 
 % The ratio between the min and the max
 Rat = min(Vol)/max(Vol);

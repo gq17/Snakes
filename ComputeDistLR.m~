@@ -41,14 +41,14 @@ EccenList = DistList./EccenList;
 figure;
 subplot(2,1,1)
 plot(DistList);
-title('The distance between left and right surfaces');
+title('he distance between left and right surfaces');
 ylim([0 max(DistList)*1.1]);
 xlabel('The timeline');
 ylabel('The distance');
 legend('The distance change');
 subplot(2,1,2)
 plot(EccenList);
-title('The eccentricity');
+title('the eccentricity');
 ylim([0 1]);
 xlabel('The timeline');
 ylabel('The eccentricity');
