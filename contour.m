@@ -1,21 +1,17 @@
-
-%% This is the main process of the project. Our alorithm runs on the video 
-% of heart movement, and tracks its movement, looks for the features that
-% reflect the condition of the heart.
 clear all; close all;
 
 %% Read the vidio, extract the frames/images
 %heartVideo = VideoReader('../FETT4C.avi');
 %heartVideo = VideoReader('../NOBECOURT3cvg.avi');
 %heartVideo = VideoReader('../benis4c.avi');
-heartVideo = VideoReader('../examples/normal/005.avi');
+heartVideo = VideoReader('../examples/abnormal/009.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
 %% Set the options of the algorithm
 Options=struct;
 Options.Verbose=true;
-Options.Iterations=200;
+Options.Iterations=100;
 Options.nPoints = 200;
 Options.Wedge=2;
 Options.Wline=0;
@@ -81,68 +77,6 @@ end
 %     plot([O(:,2,i);O(1,2,i)],[O(:,1,i);O(1,1,i)],'-','Color',[c 1-c 0]);  drawnow
 %     pause(1);
 % end
-
-%% features extraction
-% Potential choice: the area, curvature, distance, barycenter
-
-% Compute the area of the left ventricle, record the change
-%w = waitforbuttonpress;
-[Rat, Vol] = ComputeArea(O);
-
-
-% % Compute and show the curvature
-% w = waitforbuttonpress;
-% Curv = computeCurvature(O);
-% figure;
-% surf(Curv);
-
-% % Compute the distance between points in LV.
-% w = waitforbuttonpress;
-% ffDistArray = ComputeDist(O);
-% 
-% % Compute the distance between points and the center in LV.
-% w = waitforbuttonpress;
-% [cDistArray, DistSum] = ComputeDistCentral(O);
-% figure;
-% plot(DistSum);
-% title('The sum of distance change');
-% 
-% % Compute the distance between the left and right surface of the LV
-% w = waitforbuttonpress;
-% [DistList, EccenList] = ComputeDistLR(O);
-% 
-% % The motion of the barycenter
-% w = waitforbuttonpress;
-% MotionB = ComputeMotionBarycenter(O);
-
-%% feature extraction 2
-% % Compute the distance between points in one contour
-% w = waitforbuttonpress;
-% DistArrayP = ComputeDistPoints(O);
-% 
-% % Compute the perimeter of the contour
-% w = waitforbuttonpress;
-% Peri = sum(DistArrayP);
-% figure;
-% plot(Peri);
-% title('The perimeter change');
-% 
-% % Compute the correlation of the distance between points and the center
-% w = waitforbuttonpress;
-% CorrArray = ComputeCorrelation(O);
-
-
-
-
-% Analyses
-
-% 
-% % Curvature analyse
-% CorrCurv = AnalsCurv(Curv);
-
-% Distance analyse
-
-
 
 
 
