@@ -1,7 +1,7 @@
 %% features extraction
 % Potential choice: the area, curvature, distance, barycenter
 clear all; close all;
-load('nor08.mat');
+load('abnor09.mat');
 
 % Compute the area of the left ventricle, record the change
 % w = waitforbuttonpress;
@@ -17,14 +17,7 @@ load('nor08.mat');
 
 % Compute the distance between points and the center in LV.
 % w = waitforbuttonpress;
-[cDistArray, DistSum] = ComputeDistCentral(O);
-figure;
-plot(DistSum);
-title('The sum of distance change');
-
-% Compute the correlation of the distance between points and the center
-% w = waitforbuttonpress;
-CorrArray = ComputeCorrelation(O);
+[DistArray, CorrArray] = ComputeDistCentral(O);
 
 % % Compute and show the curvature
 % w = waitforbuttonpress;
@@ -36,10 +29,6 @@ CorrArray = ComputeCorrelation(O);
 % w = waitforbuttonpress;
 % ffDistArray = ComputeDist(O);
 % 
-
-
-
-%% feature extraction 2
 % % Compute the distance between points in one contour
 % w = waitforbuttonpress;
 % DistArrayP = ComputeDistPoints(O);

@@ -1,4 +1,4 @@
-function [DistArray, CorrArray] = ComputeDistCentral(P)
+function [DistArrayC, CorrArray] = ComputeDistCentral(P)
 % This function compute the distance change betwen points and the center of the
 % contour
 
@@ -19,7 +19,7 @@ DistArray = sqrt((P(:,1,:) - cx).^2 + (P(:,2,:) - cy).^2);
 
 DistArray = squeeze(DistArray);
 
-%DistArrayC = DistArray(:,2:size(DistArray,2)) - DistArray(:,1:size(DistArray,2)-1);
+DistArrayC = DistArray(:,2:size(DistArray,2)) - DistArray(:,1:size(DistArray,2)-1);
 
 % sum of the distance
 %DistSum = sum(abs(DistArrayC));
@@ -31,17 +31,18 @@ CorrArray = corrcoef(DistArray);
 % Show the results
 figure;
 surf(DistArray);
-title('The distance distribution');
+title('The change of area of the LV');
 xlabel('The timeline');
-ylabel('The contour points');
+ylabel('The normalized area');
 zlabel('The value');
+legend('The area change');
 
 figure;
 surf(CorrArray);
-title('The distance distribution correlation');
+title('The change of area of the LV');
 xlabel('The timeline');
-ylabel('The timeline');
-zlabel('The value');
+ylabel('The normalized area');
+legend('The area change');
 
 % % Show the results
 % figure;
