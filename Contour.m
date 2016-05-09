@@ -4,7 +4,7 @@ clear all; close all;
 %heartVideo = VideoReader('../FETT4C.avi');
 %heartVideo = VideoReader('../NOBECOURT3cvg.avi');
 %heartVideo = VideoReader('../benis4c.avi');
-heartVideo = VideoReader('../examples/abnormal/009.avi');
+heartVideo = VideoReader('../examples/normal/003.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
@@ -12,7 +12,7 @@ frames = heartVideo.NumberOfFrames;
 Options=struct;
 Options.Verbose=true;
 Options.Iterations=100;
-Options.nPoints = 200;
+Options.nPoints = 100;
 Options.Wedge=2;
 Options.Wline=0;
 Options.Wterm=2;
@@ -41,6 +41,9 @@ Pcopy = P;
 % Preallocate for acceleration
 O = zeros(Options.nPoints, 2, frames);
 
+% flag of the conraction. 1 means systole, 0 means diastole
+cflag = 1;
+
 % Run snakes
 [O(:,:,1),J]=Snake2D(I,P,Options);
 for x = 2:frames
@@ -50,6 +53,10 @@ for x = 2:frames
     [O(:,:,x),J]=Snake2D(I,P,Options);
     %P = O(:,:,x);
     %P = clockwiseSnake(P);
+    cflag = ComputeState(O, x);
+    if(cflag == 0)
+        Options.Delta=0.1;
+    end
     P = ContourIte(Pcopy, O(:,:,x));
     % Linear resampling of the contour to avoid twist
     dis=[0;cumsum(sqrt(sum((P(2:end,:)-P(1:end-1,:)).^2,2)))];

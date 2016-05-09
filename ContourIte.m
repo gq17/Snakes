@@ -22,7 +22,7 @@ function O = ContourIte(P, Q)
 [~, idxq] = min(Q(:,2));
 
 % Weight of the initial contour
-Val = 0.6;
+Val = 0.3;
 
 sizeP = size(P);
 O = zeros(sizeP(1), sizeP(2));

@@ -1,7 +1,7 @@
 %% features extraction
 % Potential choice: the area, curvature, distance, barycenter
 clear all; close all;
-load('abnor09.mat');
+load('nor08.mat');
 
 % Compute the area of the left ventricle, record the change
 % w = waitforbuttonpress;
@@ -40,10 +40,6 @@ load('abnor09.mat');
 % plot(Peri);
 % title('The perimeter change');
 % 
-
-
-
-
 
 % Analyses
 
