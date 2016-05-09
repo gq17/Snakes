@@ -1,0 +1,3 @@
+function cflag = ComputeState(O, x)
+% This function computes the state of the heart, to decide whether it
+% contracts or inflate. 

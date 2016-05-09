@@ -12,7 +12,7 @@ frames = heartVideo.NumberOfFrames;
 Options=struct;
 Options.Verbose=true;
 Options.Iterations=100;
-Options.nPoints = 200;
+Options.nPoints = 100;
 Options.Wedge=2;
 Options.Wline=0;
 Options.Wterm=2;
@@ -41,7 +41,7 @@ Pcopy = P;
 % Preallocate for acceleration
 O = zeros(Options.nPoints, 2, frames);
 
-% flag of the conraction. 1 means systole, -1 means diastole, 0 unsure
+% flag of the conraction. 1 means systole, 0 means diastole
 cflag = 1;
 
 % Run snakes
@@ -54,13 +54,10 @@ for x = 2:frames
     %P = O(:,:,x);
     %P = clockwiseSnake(P);
     cflag = ComputeState(O, x);
-    if(cflag == -1)
+    if(cflag == -)
         Options.Delta=0.1;
-    else if(cflag == 1)
-            Options.Delta=-0.1;
-        else
-            Options.Delta= 0;
-        end
+    else if()
+        Options.Delta=-0.1;
     end
     P = ContourIte(Pcopy, O(:,:,x));
     % Linear resampling of the contour to avoid twist
