@@ -1,0 +1,13 @@
+% This is for the classification of area
+
+clear all; close all;
+
+figure;
+load('nor08.mat');
+[Rat, Vol] = ComputeArea(O);
+plot(Vol); 
+ylim([0, max(Vol)*1.1]);
+title('The change of area of the LV');
+xlabel('The timeline');
+ylabel('The normalized area');
+legend('The area change');

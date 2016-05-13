@@ -19,9 +19,9 @@ for i=(x-1):x
 end
 
 flag = (Vol(x)-Vol(x-1))/Vol(x-1);
-if(flag > 0.01)
+if(flag > 0.05)
     cflag = -1;
-else if(flag < -0.01)
+else if(flag < -0.05)
         cflag = 1;
     else
         cflag = 0;
