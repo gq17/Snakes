@@ -1,11 +1,13 @@
-clear all; close all;
-load('abnormal.mat');
-figure;
-[Rat, Vol1] = ComputeArea(abnor01);
-plot(Vol1, 'r');
-hold on
-[Rat, Vol2] = ComputeArea(abnor05);
-plot(Vol2, 'r');
+% clear all; close all;
+% load('normal.mat');
+% figure;
+%  [Rat, Vol1] = ComputeArea(nor26);
+% plot(Vol1, 'r');
+x=0:0.01:2*pi;
+y=cos(x);
+z=acos(y);
+figure
+plot(z);
 
 
 % load('abnor01.mat');

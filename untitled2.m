@@ -1,9 +1,13 @@
 % clear all; close all;
 % load('normal.mat');
 % figure;
- [Rat, Vol1] = ComputeArea(nor26);
-plot(Vol1, 'r');
-
+%  [Rat, Vol1] = ComputeArea(nor26);
+% plot(Vol1, 'r');
+x=0:0.1:1*pi;
+y=cos(x);
+z=acos(y);
+figure
+plot(x,z);
 
 
 % load('abnor01.mat');
