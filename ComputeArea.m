@@ -1,4 +1,4 @@
-function [Rat, Vol] = ComputeArea(P)
+function Vol = ComputeArea(P)
 % This function computes the volume of the heart chamber with the 
 % coordinates of the snake. The current method is coarse and could be
 % improved later.
@@ -43,7 +43,7 @@ Vol = Vol/max(Vol);
 % legend('The area change');
 
 % The ratio between the min and the max
-Rat = min(Vol)/max(Vol);
+% Rat = min(Vol)/max(Vol);
 
 % % FFT of area change
 % fftvol = fft(Vol);

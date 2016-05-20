@@ -5,7 +5,7 @@ load('nor08.mat');
 
 % Compute the area of the left ventricle, record the change
 % w = waitforbuttonpress;
-% [Rat, Vol] = ComputeArea(O);
+% Vol = ComputeArea(O);
 
 % The motion of the barycenter
 % w = waitforbuttonpress;
