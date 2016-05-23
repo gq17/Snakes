@@ -1,4 +1,4 @@
-function [TYA, TYV] = ComputeDistCentral(P)
+function [DistArray, CorrArray] = ComputeDistCentral(P)
 % This function compute the distance change betwen points and the center of the
 % contour
 
@@ -36,12 +36,12 @@ CorrArray = corrcoef(DistArray);
 % ylabel('The contour points');
 % zlabel('The value');
 % 
-figure;
-surf(CorrArray);
-title('Distance distribution correlation');
-xlabel('Timeline');
-ylabel('Timeline');
-zlabel('Value');
+% figure;
+% surf(CorrArray);
+% title('The distance distribution correlation');
+% xlabel('The timeline');
+% ylabel('The timeline');
+% zlabel('The value');
 
 % % Show the results
 % figure;
@@ -59,8 +59,7 @@ zlabel('Value');
 % Show the mean and variance of the coorelation
 x = zeros(1,size(CorrArray,1));
 for i=1:size(CorrArray,1)
-    x(i) = CorrArray(i,mod(i+1, size(CorrArray,1))+1);
+    x(i) = CorrArray(i:mod(i+1, size(CorrArray,1)));
 end
 
-TYA = mean(x);
-TYV = var(x);
+

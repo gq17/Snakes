@@ -1,4 +1,5 @@
 % This file shows the difference of left ventricle area change
+% By GUO Qiang 18/05/2016 at ENS
 clear all; close all;
 
 % Load data

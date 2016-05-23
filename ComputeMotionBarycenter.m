@@ -1,4 +1,4 @@
-function  [UEA, UEV] = ComputeMotionBarycenter(O)
+function  [UEA, UEV, UES] = ComputeMotionBarycenter(O)
 % This function wants to observe the movement of the barycenter of the
 % LV. We compute the barycenter at each time
 
@@ -37,34 +37,35 @@ MotionB = squeeze(LocaB);
 X = MotionB(1,:) - MotionB(1,1);
 Y = MotionB(2,:) - MotionB(2,1);
 
-figure;
-subplot(1,2,1)
-plot(Vol);
-title('Area change of heart','FontSize',20);
-xlabel('Frame','FontSize',18);
-ylabel('Area','FontSize',18);
-legend('Area change');
-subplot(1,2,2)
-plot(X, Y, '-.');
-title('Movement of barycenter','FontSize',20);
-xlabel('Horizonal direction/pixel','FontSize',18);
-ylabel('Vertical direction/pixel','FontSize',18);
-legend('Position change');
+% figure;
+% subplot(1,2,1)
+% plot(Vol);
+% title('Area change of heart','FontSize',20);
+% xlabel('Frame','FontSize',18);
+% ylabel('Area','FontSize',18);
+% legend('Area change');
+% subplot(1,2,2)
+% plot(X, Y, '-.');
+% title('Movement of barycenter','FontSize',20);
+% xlabel('Horizonal direction/pixel','FontSize',18);
+% ylabel('Vertical direction/pixel','FontSize',18);
+% legend('Position change');
 
 % Normalized with area
 pos_x = mean(X);
 pos_y = mean(Y);
 DistB = sqrt((X - pos_x).^2 + (Y - pos_y).^2);
 DistB = DistB/vol;
-figure
-plot(DistB);
-title('Distribution of barycenter movement','FontSize',20);
-xlabel('Frame','FontSize',18);
-ylabel('Distance','FontSize',18);
-legend('Distance change');
+% figure
+% plot(DistB);
+% title('Distribution of barycenter movement','FontSize',20);
+% xlabel('Frame','FontSize',18);
+% ylabel('Distance','FontSize',18);
+% legend('Distance change');
 
 UEA = mean(DistB);
 UEV = var(DistB);
+UES = (max(X)-min(X))*(max(Y)-min(Y))/vol;
 
 
 
