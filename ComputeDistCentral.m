@@ -35,19 +35,19 @@ CorrArray = corrcoef(DistArray);
 % ylim([0 1]);
 
 % Show the results
-figure;
-surf(DistArray);
-title('The distance distribution');
-xlabel('The timeline');
-ylabel('The contour points');
-zlabel('The value');
-% 
+% figure;
+% surf(DistArray);
+% title('Distance distribution', 'FontSize', 20);
+% xlabel('Frame', 'FontSize', 18);
+% ylabel('Contour points', 'FontSize', 18);
+% zlabel('Value', 'FontSize', 18);
+% % 
 % figure;
 % surf(CorrArray);
-% title('Distance distribution correlation');
-% xlabel('Timeline');
-% ylabel('Timeline');
-% zlabel('Value');
+% title('Distance distribution correlation', 'FontSize', 20);
+% xlabel('Frame', 'FontSize', 18);
+% ylabel('Frame', 'FontSize', 18);
+% zlabel('Value', 'FontSize', 18);
 
 a = sum(CorrArray(:)<0.8)/(size(CorrArray,1)^2);
 % % Show the results

@@ -44,8 +44,18 @@ CorrArrayp = DistArrayp;
 [DistArrayp(16), CorrArrayp(16)] = ComputeDistCentral(abnor16);
 
 % Show the results
+Xq = [DistArrayq(5:10) DistArrayq(12:13) DistArrayq(15) DistArrayq(17:20) DistArrayq(23:26)];
+Xp = [DistArrayp(1:2) DistArrayp(5:10) DistArrayp(13:16)];
 figure
-stem(DistArrayq)
+stem(Xq)
+title('Heart distance distribution correlation', 'FontSize', 20);
+h = xlabel('Heart index');
+set(h, 'FontSize', 18);
+h = ylabel('Percentage');
+set(h, 'FontSize', 18);
 hold on
-stem(DistArrayp, 'r')
+stem(Xp, 'r')
+hold off
+legend('Normal heart', 'Abnormal heart');
+
 

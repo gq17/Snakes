@@ -80,15 +80,15 @@ end
 
 %% Show the contour change of the LV
 % w = waitforbuttonpress;
-% figure;
-% imshow(I,[]), hold on; 
-% title('Contour movement ')
-% drawnow;
-% for i = 1:frames
-%     c = i/frames;
-%     plot([O(:,2,i);O(1,2,i)],[O(:,1,i);O(1,1,i)],'-','Color',[c 1-c 0]);  drawnow
-%     pause(1);
-% end
+figure;
+imshow(I,[]), hold on; 
+title('Contour movement ')
+drawnow;
+for i = 1:frames
+    c = i/frames;
+    plot([O(:,2,i);O(1,2,i)],[O(:,1,i);O(1,1,i)],'-','Color',[c 1-c 0]);  drawnow
+    pause(1);
+end
 
 
 

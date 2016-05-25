@@ -8,7 +8,9 @@ load('abnormal.mat');
 
 % Compute the correlation
 DistArrayq = zeros(1, 27);
-CorrArrayq = 
+CorrArrayq = DistArrayq;
+DistArrayp = zeros(1, 17);
+CorrArrayp = DistArrayp;
 % Normal hearts
 [DistArrayq(5), CorrArrayq(5)] = ComputeDistCentral(nor05);
 [DistArrayq(6), CorrArrayq(6)] = ComputeDistCentral(nor06);
@@ -40,4 +42,20 @@ CorrArrayq =
 [DistArrayp(14), CorrArrayp(14)] = ComputeDistCentral(abnor14);
 [DistArrayp(15), CorrArrayp(15)] = ComputeDistCentral(abnor15);
 [DistArrayp(16), CorrArrayp(16)] = ComputeDistCentral(abnor16);
+
+% Show the results
+Xq = [DistArrayq(5:10) DistArrayq(12:13) DistArrayq(15) DistArrayq(17:20) DistArrayq(23:26)];
+Xp = [DistArrayp(1:2) DistArrayp(5:10) DistArrayp(13:16)];
+figure
+stem(Xq)
+title('Heart distribution in IUD-IUA plane', 'FontSize', 20);
+h = xlabel('Percentage');
+set(h, 'FontSize', 18);
+h = ylabel('Heart index');
+set(h, 'FontSize', 18);
+hold on
+stem(Xp, 'r')
+hold off
+legend('Normal heart', 'Abnormal heart');
+
 
