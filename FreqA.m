@@ -18,8 +18,8 @@ function [A, diff] = FreqA(Vol, fre, frate)
 Volb = Vol;
 bd = sort(Vol, 'descend');
 ba = sort(Vol);
-up = bd(5);
-dow = ba(5);
+up = bd(1+floor(size(Vol,2)/20));
+dow = ba(1+floor(size(Vol,2)/20));
 % Ampltitude & Height
 A = (up-dow)/2;  
 B = (up+dow)/2;

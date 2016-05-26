@@ -11,7 +11,7 @@ Q1 = [0 0 0 0 12 14 15 13 5 13 0 6 10 0 12 0 11 6 12 11 0 0 6 12 6 6 0];
 % First low apex location for abnormal hearts
 P1 = [10 12 0 0 7 16 12 15 44 6 0 0 12 12 11 18 0];
 % Frequency of normal hearts
-freq = [82 76 84 81 85 62 66 55 70 64 75 67 100 48 88 72 78 78 100 85 61 56 90 73 71 63 99];
+freq = [82 76 84 81 85 62 66 55 70 64 75 67 100 48 88 72 78 78 100 85 61 56 72 73 71 63 99]; %fre 23th
 % Frame rate of normal hearts
 frateq = [0 0 0 0 30 25 30 30 15 25 0 15 30 0 30 0 25 15 25 25 0 0 15 25 15 15 0];
 % Frequency of abnormal hearts
@@ -171,16 +171,16 @@ UESp = UEAp;
 
 %% 3-D classification
 figure;
-plot3(IUAq, IUDq, UEVq, 'o', 'color', 'b');
-title('Heart distribution in UEV-UEA plane', 'FontSize', 20);
-h = xlabel('UEA');
+plot3(IUAq, UEAq, UEVq, 'o', 'color', 'b');
+title('Heart distribution in 3-D space', 'FontSize', 20);
+h = xlabel('IUA');
 set(h, 'FontSize', 18);
-h = ylabel('UEV');
+h = ylabel('UEA');
 set(h, 'FontSize', 18);
-h = zlabel('UES');
+h = zlabel('UEV');
 set(h, 'FontSize', 18);
 hold on
-plot3(IUAp, IUDp, UEVp, '*', 'color', 'r');
+plot3(IUAp, UEAp, UEVp, '*', 'color', 'r');
 hold off
 legend('Normal heart', 'Abnormal heart');
 
