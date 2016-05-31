@@ -1,3 +1,11 @@
-[X, Y] = meshgrid(-5:5, -5:5);
-Z = X.^2 + Y.^2;
-surf(X,Y,Z);
+load fisheriris
+xdata = meas(51:end,3:4);
+group = species(51:end);
+figure;
+svmStruct = svmtrain(xdata,group,'ShowPlot',true);
+
+% Xnew = [5 2; 4 1.5];
+% species = svmclassify(svmStruct,Xnew,'ShowPlot',true)
+% hold on;
+% plot(Xnew(:,1),Xnew(:,2),'ro','MarkerSize',12);
+% hold off

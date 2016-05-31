@@ -199,7 +199,7 @@ xdata = [IUAq(5) IUDq(5) UEAq(5) UEVq(5); IUAq(6) IUDq(6) UEAq(6) UEVq(6);IUAq(7
 ydata = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0]';
 figure;
 % This function would be replaced in further release of Matlab
-svmStruct = svmtrain(xdata(:,[1 3]),ydata,'ShowPlot',true);
+svmStruct = svmtrain(xdata(:,3:4),ydata,'ShowPlot',true);
 
 
 %% Classificaiton
