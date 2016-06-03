@@ -170,21 +170,21 @@ UESp = UEAp;
 % legend('Normal heart', 'Abnormal heart');
 
 %% 3-D classification
-figure;
-plot3(IUAq, UEAq, UEVq, 'o', 'color', 'b');
-title('Heart distribution in 3-D space', 'FontSize', 20);
-h = xlabel('IUA');
-set(h, 'FontSize', 18);
-h = ylabel('UEA');
-set(h, 'FontSize', 18);
-h = zlabel('UEV');
-set(h, 'FontSize', 18);
-hold on
-plot3(IUAp, UEAp, UEVp, '*', 'color', 'r');
-hold off
-legend('Normal heart', 'Abnormal heart');
+% figure;
+% plot3(IUAq, UEAq, UEVq, 'o', 'color', 'b');
+% title('Heart distribution in 3-D space', 'FontSize', 20);
+% h = xlabel('IUA');
+% set(h, 'FontSize', 18);
+% h = ylabel('UEA');
+% set(h, 'FontSize', 18);
+% h = zlabel('UEV');
+% set(h, 'FontSize', 18);
+% hold on
+% plot3(IUAp, UEAp, UEVp, '*', 'color', 'r');
+% hold off
+% legend('Normal heart', 'Abnormal heart');
 
-%% Training
+%% Training and Cross Validation
 % By GUO Qiang 27/05/2016 at ENS
 xdata = [IUAq(5) IUDq(5) UEAq(5) UEVq(5); IUAq(6) IUDq(6) UEAq(6) UEVq(6);IUAq(7) IUDq(7) UEAq(7) UEVq(7);
     IUAq(8) IUDq(8) UEAq(8) UEVq(8); IUAq(9) IUDq(9) UEAq(9) UEVq(9); IUAq(10) IUDq(10) UEAq(10) UEVq(10);
@@ -197,13 +197,46 @@ xdata = [IUAq(5) IUDq(5) UEAq(5) UEVq(5); IUAq(6) IUDq(6) UEAq(6) UEVq(6);IUAq(7
     IUAp(9) IUDp(9) UEAp(9) UEVp(9); IUAp(10) IUDp(10) UEAp(10) UEVp(10); IUAp(13) IUDp(13) UEAp(13) UEVp(13);
     IUAp(14) IUDp(14) UEAp(14) UEVp(14); IUAp(15) IUDp(15) UEAp(15) UEVp(15); IUAp(16) IUDp(16) UEAp(16) UEVp(16);];
 ydata = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0]';
+% Feature value normalization
+% xdata(:,1) = (xdata(:,1)-min(xdata(:,1)))/(max(xdata(:,1))-min(xdata(:,1)));
+% xdata(:,2) = (xdata(:,2)-min(xdata(:,2)))/(max(xdata(:,2))-min(xdata(:,2)));
+% xdata(:,3) = (xdata(:,3)-min(xdata(:,3)))/(max(xdata(:,3))-min(xdata(:,3)));
+% xdata(:,4) = (xdata(:,4)-min(xdata(:,4)))/(max(xdata(:,4))-min(xdata(:,4)));
+
+
+figure;
+plot3(xdata(1:17,1), xdata(1:17,3), xdata(1:17,4), 'o', 'color', 'b');
+title('Heart distribution in 3-D space', 'FontSize', 20);
+h = xlabel('IUA');
+set(h, 'FontSize', 18);
+h = ylabel('UEA');
+set(h, 'FontSize', 18);
+h = zlabel('UEV');
+set(h, 'FontSize', 18);
+hold on
+plot3(xdata(18:29,1), xdata(18:29,3), xdata(18:29,4), '*', 'color', 'r');
+hold off
+legend('Normal heart', 'Abnormal heart');
+
 figure;
 % This function would be replaced in further release of Matlab
-svmStruct = svmtrain(xdata(:,[1 3]),ydata,'ShowPlot',true);
+svmStruct = svmtrain(xdata(:,[1 2]),ydata, 'kernel_function','polynomial','polyorder',2,'ShowPlot',true);
+
+% Validation
+% 9-fold cross validation
+k=8;
+cvFolds = crossvalind('Kfold', ydata, k);
+cp = classperf(ydata);
+for i=1:k
+    testIdx = (cvFolds == i);
+    trainIdx = ~testIdx;
+    
+    svmModel = svmtrain(xdata(trainIdx,1:2),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',2,'ShowPlot',false);
+    pred = svmclassify(svmModel, xdata(testIdx,1:2), 'Showplot',false);
+    cp = classperf(cp, pred, testIdx);
+end
 
 
-%% Classificaiton
-% Xnew = [5 2; 4 1.5];
 % species = svmclassify(svmStruct,Xnew,'ShowPlot',true)
 % hold on;
 % plot(Xnew(:,1),Xnew(:,2),'ro','MarkerSize',12);
