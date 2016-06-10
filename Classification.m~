@@ -169,6 +169,42 @@ UESp = UEAp;
 % hold off
 % legend('Normal heart', 'Abnormal heart');
 
+%% Left and Right area similiarity
+SMLq = zeros(1,27);
+SMLp = zeros(1,17);
+SMLq(5) = ComputeAreaLR(nor05);
+SMLq(6) = ComputeAreaLR(nor06);
+SMLq(7) = ComputeAreaLR(nor07);
+SMLq(8) = ComputeAreaLR(nor08);
+SMLq(9) = ComputeAreaLR(nor09);
+SMLq(10) = ComputeAreaLR(nor10);
+SMLq(12) = ComputeAreaLR(nor12);
+SMLq(13) = ComputeAreaLR(nor13);
+SMLq(15) = ComputeAreaLR(nor15);
+SMLq(17) = ComputeAreaLR(nor17);
+SMLq(18) = ComputeAreaLR(nor18);
+SMLq(19) = ComputeAreaLR(nor19);
+SMLq(20) = ComputeAreaLR(nor20);
+SMLq(23) = ComputeAreaLR(nor23);
+SMLq(24) = ComputeAreaLR(nor24);
+SMLq(25) = ComputeAreaLR(nor25);
+SMLq(26) = ComputeAreaLR(nor26);
+
+SMLp(1) = ComputeAreaLR(abnor01);
+SMLp(2) = ComputeAreaLR(abnor02);
+SMLp(5) = ComputeAreaLR(abnor05);
+SMLp(6) = ComputeAreaLR(abnor06);
+SMLp(7) = ComputeAreaLR(abnor07);
+SMLp(8) = ComputeAreaLR(abnor08);
+SMLp(9) = ComputeAreaLR(abnor09);
+SMLp(10) = ComputeAreaLR(abnor10);
+SMLp(13) = ComputeAreaLR(abnor13);
+SMLp(14) = ComputeAreaLR(abnor14);
+SMLp(15) = ComputeAreaLR(abnor15);
+SMLp(16) = ComputeAreaLR(abnor16);
+
+
+
 %% 3-D classification
 % figure;
 % plot3(IUAq, UEAq, UEVq, 'o', 'color', 'b');
@@ -184,71 +220,58 @@ UESp = UEAp;
 % hold off
 % legend('Normal heart', 'Abnormal heart');
 
-%% Training
+%% Training and Cross Validation
 % By GUO Qiang 27/05/2016 at ENS
-xdata = [IUAq(5) IUDq(5) UEAq(5) UEVq(5); IUAq(6) IUDq(6) UEAq(6) UEVq(6);IUAq(7) IUDq(7) UEAq(7) UEVq(7);
-    IUAq(8) IUDq(8) UEAq(8) UEVq(8); IUAq(9) IUDq(9) UEAq(9) UEVq(9); IUAq(10) IUDq(10) UEAq(10) UEVq(10);
-    IUAq(12) IUDq(12) UEAq(12) UEVq(12); IUAq(13) IUDq(13) UEAq(13) UEVq(13); IUAq(15) IUDq(15) UEAq(15) UEVq(15);
-    IUAq(17) IUDq(17) UEAq(17) UEVq(17); IUAq(18) IUDq(18) UEAq(18) UEVq(18); IUAq(19) IUDq(19) UEAq(19) UEVq(19);
-    IUAq(20) IUDq(20) UEAq(20) UEVq(20); IUAq(23) IUDq(23) UEAq(23) UEVq(23); IUAq(24) IUDq(24) UEAq(24) UEVq(24); 
-    IUAq(25) IUDq(25) UEAq(25) UEVq(25);IUAq(26) IUDq(26) UEAq(26) UEVq(26); 
-    IUAp(1) IUDp(1) UEAp(1) UEVp(1); IUAp(2) IUDp(2) UEAp(2) UEVp(2); IUAp(5) IUDp(5) UEAp(5) UEVp(5);
-    IUAp(6) IUDp(6) UEAp(6) UEVp(6); IUAp(7) IUDp(7) UEAp(7) UEVp(7); IUAp(8) IUDp(8) UEAp(8) UEVp(8);
-    IUAp(9) IUDp(9) UEAp(9) UEVp(9); IUAp(10) IUDp(10) UEAp(10) UEVp(10); IUAp(13) IUDp(13) UEAp(13) UEVp(13);
-    IUAp(14) IUDp(14) UEAp(14) UEVp(14); IUAp(15) IUDp(15) UEAp(15) UEVp(15); IUAp(16) IUDp(16) UEAp(16) UEVp(16);];
+xdata = [IUAq(5) IUDq(5) UEAq(5) UEVq(5) SMLq(5); IUAq(6) IUDq(6) UEAq(6) UEVq(6) SMLq(6);IUAq(7) IUDq(7) UEAq(7) UEVq(7) SMLq(7);
+    IUAq(8) IUDq(8) UEAq(8) UEVq(8) SMLq(8); IUAq(9) IUDq(9) UEAq(9) UEVq(9) SMLq(9); IUAq(10) IUDq(10) UEAq(10) UEVq(10) SMLq(10);
+    IUAq(12) IUDq(12) UEAq(12) UEVq(12) SMLq(12); IUAq(13) IUDq(13) UEAq(13) UEVq(13) SMLq(13); IUAq(15) IUDq(15) UEAq(15) UEVq(15) SMLq(15);
+    IUAq(17) IUDq(17) UEAq(17) UEVq(17) SMLq(17); IUAq(18) IUDq(18) UEAq(18) UEVq(18) SMLq(18); IUAq(19) IUDq(19) UEAq(19) UEVq(19) SMLq(19);
+    IUAq(20) IUDq(20) UEAq(20) UEVq(20) SMLq(20); IUAq(23) IUDq(23) UEAq(23) UEVq(23) SMLq(23); IUAq(24) IUDq(24) UEAq(24) UEVq(24) SMLq(24); 
+    IUAq(25) IUDq(25) UEAq(25) UEVq(25) SMLq(25); IUAq(26) IUDq(26) UEAq(26) UEVq(26) SMLq(26); 
+    IUAp(1) IUDp(1) UEAp(1) UEVp(1) SMLp(1); IUAp(2) IUDp(2) UEAp(2) UEVp(2) SMLp(2); IUAp(5) IUDp(5) UEAp(5) UEVp(5) SMLp(5);
+    IUAp(6) IUDp(6) UEAp(6) UEVp(6) SMLp(6); IUAp(7) IUDp(7) UEAp(7) UEVp(7) SMLp(7); IUAp(8) IUDp(8) UEAp(8) UEVp(8) SMLp(8);
+    IUAp(9) IUDp(9) UEAp(9) UEVp(9) SMLp(9); IUAp(10) IUDp(10) UEAp(10) UEVp(10) SMLp(10); IUAp(13) IUDp(13) UEAp(13) UEVp(13) SMLp(13);
+    IUAp(14) IUDp(14) UEAp(14) UEVp(14) SMLp(14); IUAp(15) IUDp(15) UEAp(15) UEVp(15) SMLp(15); IUAp(16) IUDp(16) UEAp(16) UEVp(16) SMLp(16);];
 ydata = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0]';
 % Feature value normalization
-xdata(:,1) = (xdata(:,1)-min(xdata(:,1)))/(max(xdata(:,1))-min(xdafigure;
-plot3(xdata(1:17,1), xdata(1:17,3), xdata(1:17,4), 'o', 'color', 'b');
-title('Heart distribution in 3-D space', 'FontSize', 20);
-h = xlabel('IUA');
-set(h, 'FontSize', 18);
-h = ylabel('UEA');
-set(h, 'FontSize', 18);
-h = zlabel('UEV');
-set(h, 'FontSize', 18);
-hold on
-plot3(xdata(18:29,1), xdata(18:29,3), xdata(18:29,4), '*', 'color', 'r');
-hold off
-legend('Normal heart', 'Abnormal heart');ta(:,1)));
-xdata(:,2) = (xdata(:,2)-min(xdata(:,2)))/(max(xdata(:,2))-min(xdata(:,2)));
-xdata(:,3) = (xdata(:,3)-min(xdata(:,3)))/(max(xdata(:,3))-min(xdata(:,3)));
-xdata(:,4) = (xdata(:,4)-min(xdata(:,4)))/(max(xdata(:,4))-min(xdata(:,4)));
+% xdata(:,1) = (xdata(:,1)-min(xdata(:,1)))/(max(xdata(:,1))-min(xdata(:,1)));
+% xdata(:,2) = (xdata(:,2)-min(xdata(:,2)))/(max(xdata(:,2))-min(xdata(:,2)));
+% xdata(:,3) = (xdata(:,3)-min(xdata(:,3)))/(max(xdata(:,3))-min(xdata(:,3)));
+% xdata(:,4) = (xdata(:,4)-min(xdata(:,4)))/(max(xdata(:,4))-min(xdata(:,4)));
+
 
 figure;
-plot3(xdata(1:17,1), xdata(1:17,3), xdata(1:17,4), 'o', 'color', 'b');
+plot3(xdata(1:17,1), xdata(1:17,3), xdata(1:17,5), 'o', 'color', 'b');
 title('Heart distribution in 3-D space', 'FontSize', 20);
 h = xlabel('IUA');
 set(h, 'FontSize', 18);
 h = ylabel('UEA');
 set(h, 'FontSize', 18);
-h = zlabel('UEV');
+h = zlabel('SML');
 set(h, 'FontSize', 18);
 hold on
-plot3(xdata(18:29,1), xdata(18:29,3), xdata(18:29,4), '*', 'color', 'r');
+plot3(xdata(18:29,1), xdata(18:29,3), xdata(18:29,5), '*', 'color', 'r');
 hold off
 legend('Normal heart', 'Abnormal heart');
 
 figure;
 % This function would be replaced in further release of Matlab
-svmStruct = svmtrain(xdata(:,[1 2]),ydata, 'kernel_function','polynomial','polyorder',4,'ShowPlot',true);
+svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyorder',1,'ShowPlot',true);
 
-% Validation
-% 9-fold cross validation
-k=9;
-
+% Cross Validation
+% K-fold cross validation
+k=27;
 cvFolds = crossvalind('Kfold', ydata, k);
-cp = classperf(groups);
+cp = classperf(ydata);
 for i=1:k
-    testTdx = (cvFolds == i);
+    testIdx = (cvFolds == i);
     trainIdx = ~testIdx;
     
-    svmModel = svmtrain(xdata(trainIdx,:),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',4,'ShowPlot',true);
-    pred = svmclassify(svmModel, xdata(testIdx,:), 'Showplot',false);
+    svmModel = svmtrain(xdata(trainIdx,[1 3 5]),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
+    pred = svmclassify(svmModel, xdata(testIdx,[1 3 5]), 'Showplot',false);
     cp = classperf(cp, pred, testIdx);
 end
 
-cp.Corr
 
 % species = svmclassify(svmStruct,Xnew,'ShowPlot',true)
 % hold on;

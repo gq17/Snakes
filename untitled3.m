@@ -1,42 +1,30 @@
-load fisheriris                              %# load iris dataset
-groups = ismember(species,'setosa');         %# create a two-class problem
-
-%# number of cross-validation folds:
-%# If you have 50 samples, divide them into 10 groups of 5 samples each,
-%# then train with 9 groups (45 samples) and test with 1 group (5 samples).
-%# This is repeated ten times, with each group used exactly once as a test set.
-%# Finally the 10 results from the folds are averaged to produce a single 
-%# performance estimation.
-k=10;
-
-cvFolds = crossvalind('Kfold', groups, k);   %# get indices of 10-fold CV
-cp = classperf(groups);                      %# init performance tracker
-
-for i = 1:k                                  %# for each fold
-    testIdx = (cvFolds == i);                %# get indices of test instances
-    trainIdx = ~testIdx;                     %# get indices training instances
-
-    %# train an SVM model over training instances
-    svmModel = svmtrain(meas(trainIdx,:), groups(trainIdx), ...
-                 'Autoscale',true, 'Showplot',false, 'Method','QP', ...
-                 'BoxConstraint',2e-1, 'Kernel_Function','rbf', 'RBF_Sigma',1);
-
-    %# test using test instances
-    pred = svmclassify(svmModel, meas(testIdx,:), 'Showplot',false);
-
-    %# evaluate and update performance object
-    cp = classperf(cp, pred, testIdx);
-end
-
-%# get accuracy
-cp.CorrectRate
-
-%# get confusion matrix
-%# columns:actual, rows:predicted, last-row: unclassified instances
-cp.CountingMatrix
-
-% Xnew = [5 2; 4 1.5];
-% species = svmclassify(svmStruct,Xnew,'ShowPlot',true)
-% hold on;
-% plot(Xnew(:,1),Xnew(:,2),'ro','MarkerSize',12);
-% hold off
+SimiliarityLR = ComputeAreaLR(nor05)
+SimiliarityLR = ComputeAreaLR(nor06)
+SimiliarityLR = ComputeAreaLR(nor07)
+SimiliarityLR = ComputeAreaLR(nor08)
+SimiliarityLR = ComputeAreaLR(nor09)
+SimiliarityLR = ComputeAreaLR(nor10)
+SimiliarityLR = ComputeAreaLR(nor12)
+SimiliarityLR = ComputeAreaLR(nor13)
+SimiliarityLR = ComputeAreaLR(nor15)
+SimiliarityLR = ComputeAreaLR(nor17)
+SimiliarityLR = ComputeAreaLR(nor18)
+SimiliarityLR = ComputeAreaLR(nor19)
+SimiliarityLR = ComputeAreaLR(nor20)
+SimiliarityLR = ComputeAreaLR(nor23)
+SimiliarityLR = ComputeAreaLR(nor24)
+SimiliarityLR = ComputeAreaLR(nor25)
+SimiliarityLR = ComputeAreaLR(nor26)
+a=100
+SimiliarityLR = ComputeAreaLR(abnor01)
+SimiliarityLR = ComputeAreaLR(abnor02)
+SimiliarityLR = ComputeAreaLR(abnor05)
+SimiliarityLR = ComputeAreaLR(abnor06)
+SimiliarityLR = ComputeAreaLR(abnor07)
+SimiliarityLR = ComputeAreaLR(abnor08)
+SimiliarityLR = ComputeAreaLR(abnor09)
+SimiliarityLR = ComputeAreaLR(abnor10)
+SimiliarityLR = ComputeAreaLR(abnor13)
+SimiliarityLR = ComputeAreaLR(abnor14)
+SimiliarityLR = ComputeAreaLR(abnor15)
+SimiliarityLR = ComputeAreaLR(abnor16)

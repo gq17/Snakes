@@ -1,1 +1,1 @@
-This is a practise of snakes.
+He is lazy to wirte.
