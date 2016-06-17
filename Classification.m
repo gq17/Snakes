@@ -260,15 +260,15 @@ svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyo
 
 % Cross Validation
 % K-fold cross validation
-k=27;
+k=10;
 cvFolds = crossvalind('Kfold', ydata, k);
 cp = classperf(ydata);
 for i=1:k
     testIdx = (cvFolds == i);
     trainIdx = ~testIdx;
     
-    svmModel = svmtrain(xdata(trainIdx,[1 3 5]),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
-    pred = svmclassify(svmModel, xdata(testIdx,[1 3 5]), 'Showplot',false);
+    svmModel = svmtrain(xdata(trainIdx,:),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
+    pred = svmclassify(svmModel, xdata(testIdx,:), 'Showplot',false);
     cp = classperf(cp, pred, testIdx);
 end
 
