@@ -6,18 +6,33 @@ clear all; close all;
 load('normal.mat');
 load('abnormal.mat');
 
-% First low apex location for normal hearts
-Q1 = [0 0 0 0 12 14 15 13 5 13 0 6 10 0 12 0 11 6 12 11 0 0 6 12 6 6 0];  
-% First low apex location for abnormal hearts
-P1 = [10 12 0 0 7 16 12 15 44 6 0 0 12 12 11 18 0];
+% % First low apex location for normal hearts
+% Q1 = [0 0 0 0 12 14 15 13 5 13 0 6 10 0 12 0 11 6 12 11 0 0 6 12 6 6 0];  
+% % First low apex location for abnormal hearts
+% P1 = [10 12 0 0 7 16 12 15 44 6 0 0 12 12 11 18 0];
 % Frequency of normal hearts
-freq = [82 76 84 81 85 62 66 55 70 64 75 67 100 48 88 72 78 78 100 85 61 56 72 73 71 63 99]; %fre 23th
+freq = [82 76 84 81 85 62 66 55 70 64 ...
+        75 67 100 48 88 72 78 78 100 85 ...
+        61 56 72 73 71 63 99 93 69 85 ...
+        63 73 68 70 89 72 93 91 59 68 ...
+        65 71 60 70 99 78 100 72 78 55 ...
+        104 78 64 81 93]; %fre 23th
 % Frame rate of normal hearts
-frateq = [0 0 0 0 30 25 30 30 15 25 0 15 30 0 30 0 25 15 25 25 0 0 15 25 15 15 0];
+frateq = [0 0 0 0 30 25 30 30 15 25 ...
+          0 15 30 0 30 0 25 15 25 25 ...
+          0 0 15 25 15 15 0 55 52 44 ...
+          57 48 60 55 30 25 25 25 25 58 ...
+          65 25 25 30 25 30 25 58 25 12 ...
+          31 58 25 57 25];
 % Frequency of abnormal hearts
-frep = [103 103 64 69 57 60 60 71 46 85 70 136 103 54 92 52 130];
+frep = [103 103 64 69 57 60 60 71 46 85 ...
+        70 136 103 54 92 52 130 136 83 64 ...
+        48 66 53 49 71 94 66 64 109 133 ...
+        78 63 69 56 58 75 93 48];
 % Frame rate of abnormal hearts
-fratep = [25 25 0 0 15 30 30 25 30 15 0 0 25 25 30 30 0];
+fratep = [25 25 0 0 15 30 30 25 30 15 ...
+          0 0 25 25 30 30 0 57 64 25 ...
+          30 58 ];
 
 %Normal hearts
 Voln5 = ComputeArea(nor05);Voln6 = ComputeArea(nor06);
@@ -260,15 +275,15 @@ svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyo
 
 % Cross Validation
 % K-fold cross validation
-k=27;
+k=10;
 cvFolds = crossvalind('Kfold', ydata, k);
 cp = classperf(ydata);
 for i=1:k
     testIdx = (cvFolds == i);
     trainIdx = ~testIdx;
     
-    svmModel = svmtrain(xdata(trainIdx,[1 3 5]),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
-    pred = svmclassify(svmModel, xdata(testIdx,[1 3 5]), 'Showplot',false);
+    svmModel = svmtrain(xdata(trainIdx,:),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
+    pred = svmclassify(svmModel, xdata(testIdx,:), 'Showplot',false);
     cp = classperf(cp, pred, testIdx);
 end
 

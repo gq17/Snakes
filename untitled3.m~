@@ -1,25 +1,4 @@
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor07)
-SimiliarityLR = ComputeAreaLR(nor08)
-SimiliarityLR = ComputeAreaLR(nor09)
-SimiliarityLR = ComputeAreaLR(nor10)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
-SimiliarityLR = ComputeAreaLR(nor05)
-SimiliarityLR = ComputeAreaLR(nor06)
+% nor55=O;
+% save('normal.mat', 'nor55','-append');
+heartVideo = VideoReader('../examples/normal/029.avi');
+heartVideo.FrameRate
