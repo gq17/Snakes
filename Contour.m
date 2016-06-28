@@ -4,7 +4,7 @@ clear all; close all;
 %heartVideo = VideoReader('../FETT4C.avi');
 %heartVideo = VideoReader('../NOBECOURT3cvg.avi');
 %heartVideo = VideoReader('../benis4c.avi');
-heartVideo = VideoReader('../examples/normal/055.avi');
+heartVideo = VideoReader('../examples/abnormal/014.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 

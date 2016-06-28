@@ -334,37 +334,40 @@ xdata = [IUAq(5) IUDq(5) UEAq(5) UEVq(5) SMLq(5); IUAq(6) IUDq(6) UEAq(6) UEVq(6
     IUAq(8) IUDq(8) UEAq(8) UEVq(8) SMLq(8); IUAq(9) IUDq(9) UEAq(9) UEVq(9) SMLq(9); IUAq(10) IUDq(10) UEAq(10) UEVq(10) SMLq(10);
     IUAq(12) IUDq(12) UEAq(12) UEVq(12) SMLq(12); IUAq(13) IUDq(13) UEAq(13) UEVq(13) SMLq(13); IUAq(15) IUDq(15) UEAq(15) UEVq(15) SMLq(15);
     IUAq(17) IUDq(17) UEAq(17) UEVq(17) SMLq(17); IUAq(18) IUDq(18) UEAq(18) UEVq(18) SMLq(18); IUAq(19) IUDq(19) UEAq(19) UEVq(19) SMLq(19);
-    IUAq(20) IUDq(20) UEAq(20) UEVq(20) SMLq(20); IUAq(23) IUDq(23) UEAq(23) UEVq(23) SMLq(23); IUAq(24) IUDq(24) UEAq(24) UEVq(24) SMLq(24); 
+    %IUAq(20) IUDq(20) UEAq(20) UEVq(20) SMLq(20); 
+    IUAq(23) IUDq(23) UEAq(23) UEVq(23) SMLq(23); %IUAq(24) IUDq(24) UEAq(24) UEVq(24) SMLq(24); 
     IUAq(25) IUDq(25) UEAq(25) UEVq(25) SMLq(25); IUAq(26) IUDq(26) UEAq(26) UEVq(26) SMLq(26); IUAq(29) IUDq(29) UEAq(29) UEVq(29) SMLq(29); 
-    IUAq(36) IUDq(36) UEAq(36) UEVq(36) SMLq(36); IUAq(42) IUDq(42) UEAq(42) UEVq(42) SMLq(42); IUAq(43) IUDq(43) UEAq(43) UEVq(43) SMLq(43); 
+    IUAq(36) IUDq(36) UEAq(36) UEVq(36) SMLq(36); %IUAq(42) IUDq(42) UEAq(42) UEVq(42) SMLq(42); 
+    IUAq(43) IUDq(43) UEAq(43) UEVq(43) SMLq(43); 
     IUAq(44) IUDq(44) UEAq(44) UEVq(44) SMLq(44); IUAq(46) IUDq(46) UEAq(46) UEVq(46) SMLq(46); IUAq(48) IUDq(48) UEAq(48) UEVq(48) SMLq(48); 
     IUAq(50) IUDq(50) UEAq(50) UEVq(50) SMLq(50); IUAq(53) IUDq(53) UEAq(53) UEVq(53) SMLq(53); IUAq(55) IUDq(55) UEAq(55) UEVq(55) SMLq(55); 
-    IUAp(1) IUDp(1) UEAp(1) UEVp(1) SMLp(1); IUAp(2) IUDp(2) UEAp(2) UEVp(2) SMLp(2); IUAp(5) IUDp(5) UEAp(5) UEVp(5) SMLp(5);
+    IUAp(1) IUDp(1) UEAp(1) UEVp(1) SMLp(1); IUAp(2) IUDp(2) UEAp(2) UEVp(2) SMLp(2); %IUAp(5) IUDp(5) UEAp(5) UEVp(5) SMLp(5);
     IUAp(6) IUDp(6) UEAp(6) UEVp(6) SMLp(6); IUAp(7) IUDp(7) UEAp(7) UEVp(7) SMLp(7); IUAp(8) IUDp(8) UEAp(8) UEVp(8) SMLp(8);
     IUAp(9) IUDp(9) UEAp(9) UEVp(9) SMLp(9); IUAp(10) IUDp(10) UEAp(10) UEVp(10) SMLp(10); IUAp(13) IUDp(13) UEAp(13) UEVp(13) SMLp(13);
     IUAp(14) IUDp(14) UEAp(14) UEVp(14) SMLp(14); IUAp(15) IUDp(15) UEAp(15) UEVp(15) SMLp(15); IUAp(16) IUDp(16) UEAp(16) UEVp(16) SMLp(16);
     IUAp(18) IUDp(18) UEAp(18) UEVp(18) SMLp(18); IUAp(19) IUDp(19) UEAp(19) UEVp(19) SMLp(19); IUAp(20) IUDp(20) UEAp(20) UEVp(20) SMLp(20);
-    IUAp(21) IUDp(21) UEAp(21) UEVp(21) SMLp(21); IUAp(22) IUDp(22) UEAp(22) UEVp(22) SMLp(22); IUAp(23) IUDp(23) UEAp(23) UEVp(23) SMLp(23);
-    IUAp(25) IUDp(25) UEAp(25) UEVp(25) SMLp(25); IUAp(26) IUDp(26) UEAp(26) UEVp(26) SMLp(26); IUAp(28) IUDp(28) UEAp(28) UEVp(28) SMLp(28);
+    IUAp(21) IUDp(21) UEAp(21) UEVp(21) SMLp(21); IUAp(22) IUDp(22) UEAp(22) UEVp(22) SMLp(22); %IUAp(23) IUDp(23) UEAp(23) UEVp(23) SMLp(23);
+    IUAp(25) IUDp(25) UEAp(25) UEVp(25) SMLp(25); IUAp(26) IUDp(26) UEAp(26) UEVp(26) SMLp(26); %IUAp(28) IUDp(28) UEAp(28) UEVp(28) SMLp(28);
     IUAp(30) IUDp(30) UEAp(30) UEVp(30) SMLp(30); IUAp(31) IUDp(31) UEAp(31) UEVp(31) SMLp(31); IUAp(34) IUDp(34) UEAp(34) UEVp(34) SMLp(34);
-    IUAp(35) IUDp(35) UEAp(35) UEVp(35) SMLp(35); IUAp(37) IUDp(37) UEAp(37) UEVp(37) SMLp(37); IUAp(38) IUDp(38) UEAp(38) UEVp(38) SMLp(38);];
+    %IUAp(35) IUDp(35) UEAp(35) UEVp(35) SMLp(35); 
+    IUAp(37) IUDp(37) UEAp(37) UEVp(37) SMLp(37); IUAp(38) IUDp(38) UEAp(38) UEVp(38) SMLp(38);];
 ydata = [1 1 1 1 1 1 1 1 1 ...
          1 1 1 1 1 1 1 1 1 ...
-         1 1 1 1 1 1 1 1 1 ...
+         1 1 1 1 1 1 ...
          0 0 0 0 0 0 0 0 0 ...
          0 0 0 0 0 0 0 0 0 ...
-         0 0 0 0 0 0 0 0 0]';
+         0 0 0 0 0]';
 % Feature value normalization
 % xdata(:,1) = (xdata(:,1)-min(xdata(:,1)))/(max(xdata(:,1))-min(xdata(:,1)));
 % xdata(:,2) = (xdata(:,2)-min(xdata(:,2)))/(max(xdata(:,2))-min(xdata(:,2)));
 % xdata(:,3) = (xdata(:,3)-min(xdata(:,3)))/(max(xdata(:,3))-min(xdata(:,3)));
 % xdata(:,4) = (xdata(:,4)-min(xdata(:,4)))/(max(xdata(:,4))-min(xdata(:,4)));
 
-m1 = 27;
-m2 = 54;
+m1 = 24;
+m2 = 47;
 
 figure;
-plot3(xdata(1:m1,1), xdata(1:m1,2), xdata(1:m1,3), 'o', 'color', 'b');
+plot3(xdata(1:m1,1), xdata(1:m1,2), xdata(1:m1,5), 'o', 'color', 'b');
 title('Heart distribution in 3-D space', 'FontSize', 20);
 h = xlabel('IUA');
 set(h, 'FontSize', 18);
@@ -373,13 +376,13 @@ set(h, 'FontSize', 18);
 h = zlabel('SML');
 set(h, 'FontSize', 18);
 hold on
-plot3(xdata((m1+1:m2),1), xdata((m1+1):m2,2), xdata((m1+1):m2,3), '*', 'color', 'r');
+plot3(xdata((m1+1:m2),1), xdata((m1+1):m2,2), xdata((m1+1):m2,5), '*', 'color', 'r');
 hold off
 legend('Normal heart', 'Abnormal heart');
 
-figure;
-% This function would be replaced in further release of Matlab
-svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyorder',1,'ShowPlot',true);
+% figure;
+% % This function would be replaced in further release of Matlab
+% svmStruct = svmtrain(xdata(:,[1 2]),ydata, 'kernel_function','polynomial','polyorder',1,'ShowPlot',true);
 
 % Cross Validation
 % K-fold cross validation
@@ -390,9 +393,9 @@ for i=1:k
     testIdx = (cvFolds == i);
     trainIdx = ~testIdx;
     
-    %svmModel = svmtrain(xdata(trainIdx,:),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
-    svmModel = svmtrain(xdata(trainIdx,:),ydata(trainIdx,:), 'ShowPlot',false);
-    pred = svmclassify(svmModel, xdata(testIdx,:), 'Showplot',false);
+    svmModel = svmtrain(xdata(trainIdx,[1 2 3]),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
+    %svmModel = svmtrain(xdata(trainIdx,:),ydata(trainIdx,:), 'ShowPlot',false);
+    pred = svmclassify(svmModel, xdata(testIdx,[1 2 3]), 'Showplot',false);
     cp = classperf(cp, pred, testIdx);
 end
 

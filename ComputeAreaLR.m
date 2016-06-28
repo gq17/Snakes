@@ -40,19 +40,19 @@ end
 area_left = area_left/max(area_left);  
 area_right = area_right/max(area_right); 
 
-SimiliarityLR = sum((area_left-area_right).^2)/size(area_left,2);
-
+%SimiliarityLR = sum((area_left-area_right).^2)/size(area_left,2);
+SimiliarityLR = var(area_left)/var(area_right);
 % Show the results
-% figure;
-% plot(area_left, 'b'); 
-% ylim([0, 1.1]);
-% title('The change of area of the LV');
-% xlabel('The timeline');
-% ylabel('The normalized area');
-% legend('The area change');
-% hold on
-% plot(area_right, 'r');
-% hold off
+figure;
+plot(area_left, 'b'); 
+ylim([0, 1.1]);
+title('The change of area of the LV');
+xlabel('The timeline');
+ylabel('The normalized area');
+legend('The area change');
+hold on
+plot(area_right, 'r');
+hold off
 
 
 

@@ -1,14 +1,8 @@
-%clear all; close all;
-
-% Load data
-load('normal.mat');
-load('abnormal.mat');
-heartVideo = VideoReader('../examples/abnormal/016.avi');
+% clear all; close all;
+heartVideo = VideoReader('../examples/normal/055.avi');
 heartImg = heartVideo.read();
-img = heartImg(:,:,:,1);
-I=im2double(img);
-frames = heartVideo.NumberOfFrames;
-O = abnor16;
+
+
 figure;
 imshow(I,[]), hold on; 
 title('Contour movement ')

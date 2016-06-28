@@ -53,15 +53,15 @@ diff = sum((Vol-y).^2)/size(Vol,2);
 % subplot(3,1,3)
 % plot(y)
 
-figure;
-plot(Vol, 'b');
-title('Area change frequency analyses', 'FontSize', 20);
-h = xlabel('Frame');
-set(h, 'FontSize', 18);
-h = ylabel('Normalized area');
-set(h, 'FontSize', 18);
-hold on
-plot(y, 'r');
-plot(Vol-y, 'k')
-legend('Original curve', 'Fitting cosine function', 'Difference');
-hold off
+% figure;
+% plot(Vol, 'b');
+% title('Area change frequency analyses', 'FontSize', 20);
+% h = xlabel('Frame');
+% set(h, 'FontSize', 18);
+% h = ylabel('Normalized area');
+% set(h, 'FontSize', 18);
+% hold on
+% plot(y, 'r');
+% plot(Vol-y, 'k')
+% legend('Original curve', 'Fitting cosine function', 'Difference');
+% hold off
