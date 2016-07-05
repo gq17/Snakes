@@ -1,4 +1,0 @@
-% nor55=O;
-% save('normal.mat', 'nor55','-append');
-heartVideo = VideoReader('../examples/normal/029.avi');
-heartVideo.FrameRate

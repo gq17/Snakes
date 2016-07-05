@@ -371,18 +371,18 @@ plot3(xdata(1:m1,1), xdata(1:m1,2), xdata(1:m1,5), 'o', 'color', 'b');
 title('Heart distribution in 3-D space', 'FontSize', 20);
 h = xlabel('IUA');
 set(h, 'FontSize', 18);
-h = ylabel('UEA');
+h = ylabel('IUD');
 set(h, 'FontSize', 18);
-h = zlabel('SML');
+h = zlabel('LRAS');
 set(h, 'FontSize', 18);
 hold on
 plot3(xdata((m1+1:m2),1), xdata((m1+1):m2,2), xdata((m1+1):m2,5), '*', 'color', 'r');
 hold off
 legend('Normal heart', 'Abnormal heart');
 
-% figure;
+ figure;
 % % This function would be replaced in further release of Matlab
-% svmStruct = svmtrain(xdata(:,[1 2]),ydata, 'kernel_function','polynomial','polyorder',1,'ShowPlot',true);
+ svmStruct = svmtrain(xdata(:,[1 2]),ydata, 'kernel_function','polynomial','polyorder',1,'ShowPlot',true);
 
 % Cross Validation
 % K-fold cross validation
