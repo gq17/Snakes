@@ -28,6 +28,13 @@ I=im2double(img);
 figure, imshow(I);[y,x] = getpts; 
 P=[x(:) y(:)];
 
+% Igray=rgb2gray(I);
+% figure, imshow(Igray);
+% 
+% figure, imshow(I(:,:,1));
+% figure, imshow(I(:,:,2));
+% figure, imshow(I(:,:,3));
+
 % The contour must always be clockwise (because of the balloon force)
 P=MakeContourClockwise2D(P);
 
