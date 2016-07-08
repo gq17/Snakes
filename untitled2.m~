@@ -1,6 +1,5 @@
-%clear all; close all;
-
-% Load data
+% clear all; close all;
+% 
 % load('normal.mat');
 % load('abnormal.mat');
 % heartVideo = VideoReader('../examples/abnormal/028.avi');
@@ -19,24 +18,21 @@
 %     pause(1);
 % end
 
-a = [9 4 1 3 5];
-for i=1:5
-    try
 
 
-
-% fVol = abs(fft(Voln5(1:22)));
-% figure;
-% plot(fVol);
-% [~,lInds] = findpeaks([0 fVol(2:end) 0]);
-% cVol = zeros(1,numel(fVol));
-% cVol([1 lInds(1) (numel(fVol)+2-lInds(1))]) = fVol([1 lInds(1) (numel(fVol)+2-lInds(1))]);
-% iVol = abs(ifft(cVol));
-% size(iVol)
-% figure;
-% plot(Voln5);
-% hold on
-% plot(iVol, 'r')
-% hold off
+fVol = abs(fft(Voln36));
+figure;
+plot(fVol);
+%[~,lInds] = findpeaks([0 fVol(2:end) 0]);
+[~,lInds] = max([0 fVol(2:end)]);
+cVol = zeros(1,numel(fVol));
+cVol([1 lInds(3) (numel(fVol)+2-lInds(3))]) = fVol([1 lInds(3) (numel(fVol)+2-lInds(3))]);
+iVol = abs(ifft(cVol));
+size(iVol)
+figure;
+plot(Voln36);
+hold on
+plot(iVol, 'r')
+hold off
 
 

@@ -395,7 +395,7 @@ for i=1:k
     
     svmModel = svmtrain(xdata(trainIdx,[1 2 3 5]),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
     %svmModel = svmtrain(xdata(trainIdx,:),ydata(trainIdx,:), 'ShowPlot',false);
-    pred = svmclassify(svmModel, xdata(testIdx,[1 2 3 5]), 'Showplot',false);
+    pred = svmclassify(svmModel, xdata(testIdx,[1 2 3 ]), 'Showplot',false);
     cp = classperf(cp, pred, testIdx);
 end
 

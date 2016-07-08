@@ -121,7 +121,7 @@ I = double(I);
 %if(size(I,3)==3), I=rgb2gray(I); end
 if(size(I,3)==3), I=I(:,:,3); end
 % Image Preprocessing by GUO Qiang  22/03/2016
- %I = ImgPrc(I);
+I = ImgPrc(I);
 
 % Transform the Image into an External Energy Image
 Eext = ExternalForceImage2D(I,Options.Wline, Options.Wedge, Options.Wterm,Options.Sigma1);

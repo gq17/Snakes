@@ -13,7 +13,7 @@ function [A, diff] = FreqA(Vol, fre, frate)
 % Output
 % Diff: difference from a sinusoidal function
 
-% By GUO Qiang 18/05/2016 at ENS
+% By GUO Qiang 04/07/2016 at ENS
 
 Volb = Vol;
 bd = sort(Vol, 'descend');
@@ -27,7 +27,26 @@ B = (up+dow)/2;
 % Fitting
 Volc = (Volb-B)/A;
 
-pd = 60*frate/fre;
+% Get the frequency from the sequence using FFT 
+fVol = abs(fft(Vol));
+%[~,lInds] = findpeaks([0 fVol(2:end) 0]);
+[~,lInds] = max([0 fVol(2:end)]);
+cVol = zeros(1, numel(fVol));
+cVol([1 lInds (numel(fVol)+2-lInds)]) = fVol([1 lInds (numel(fVol)+2-lInds)]);
+iVol = abs(ifft(cVol));
+% figure;
+% plot(Vol);
+% hold on
+% plot(iVol, 'r')
+% hold off
+
+%pd = 60*frate/fre;
+[~,iInds] = findpeaks(iVol);
+if(numel(iInds) < 1)
+    disp('The video is too short. Result could be inaccurate!');
+end
+pd = (numel(Vol)-1)/(lInds(1)-1);
+% pd = iInds(2) - iInds(1);
 w = 2*pi/pd;
 
 p = 0;

@@ -1,5 +1,5 @@
 
-f         = fft(Voln5); % FFt of orig signal 
+f         = fft(Vola19); % FFt of orig signal 
 % sort the abs of coefficients 
 [s,inds]  = sort(abs(f(1:ceil(numel(f)/2))),'ascend');
 % preallocation
@@ -17,7 +17,7 @@ for sIdx = 1:numPoints-1
     % calculate mean period time (scaled time)
     d                = diff(lInds);
     meanPeriod(sIdx) = mean(d);
-    sse(sIdx)        = norm(fi-Voln6);
+    sse(sIdx)        = norm(fi-Vola19);
     plot(fi,'DisplayName',['Scale', num2str(sIdx)]), drawnow
 end
 plot(Voln5,'r','DisplayName','orig','LineWidth',5);

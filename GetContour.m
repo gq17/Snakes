@@ -1,10 +1,7 @@
-clear all; close all;
+function contour = GetContour(filename)
 
 %% Read the vidio, extract the frames/images
-%heartVideo = VideoReader('../FETT4C.avi');
-%heartVideo = VideoReader('../NOBECOURT3cvg.avi');
-%heartVideo = VideoReader('../benis4c.avi');
-heartVideo = VideoReader('../examples/abnormal/35.avi');
+heartVideo = VideoReader(filename);
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
@@ -28,8 +25,7 @@ Options.GIterations=200;
 %% Run the snakes algorithm
 img = heartImg(:,:,:,1);
 I=im2double(img);
-Ie = ImgPrc(I(:,:,3));
-figure, imshow(Ie);[y,x] = getpts; 
+figure, imshow(I);[y,x] = getpts; 
 P=[x(:) y(:)];
 
 % The contour must always be clockwise (because of the balloon force)
@@ -91,8 +87,6 @@ for i = 1:frames
     pause(1);
 end
 
-
-
-
+contour = O;
 
 

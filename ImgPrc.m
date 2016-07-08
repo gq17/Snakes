@@ -17,7 +17,11 @@ function Iout = ImgPrc(I)
 % Histogram specialization
 % Thd = 0.2;
 % sizeP = size(I);
-Iout = imadjust(I, [0; 0.21],[0.2; 0.8]);
+
+Iout = imadjust(I, [0; 0.21],[0.0; 0.8]);
+Iout = IdealLowPass(Iout,0.3);
+% kernel = [-1 -1 -1;-1 8 -1;-1 -1 -1];
+% Iout = imfilter(I, kernel, 'same');
 
 % Median filtering
 
