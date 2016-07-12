@@ -3,8 +3,7 @@
 clear all; close all;
 
 % Load data
-load('normal.mat');
-load('abnormal.mat');
+load('data.mat');
 
 % % First low apex location for normal hearts
 % Q1 = [0 0 0 0 12 14 15 13 5 13 0 6 10 0 12 0 11 6 12 11 0 0 6 12 6 6 0];  
@@ -36,9 +35,9 @@ fratep = [25 25 0 0 15 30 30 25 30 15 ...
           25 52 30 25 30 30 25 53];
 
 %Normal hearts
-Voln5 = ComputeArea(nor05);Voln6 = ComputeArea(nor06);
-Voln7 = ComputeArea(nor07);Voln8 = ComputeArea(nor08);
-Voln9 = ComputeArea(nor09);Voln10 = ComputeArea(nor10);
+Voln5 = ComputeArea(nor5);Voln6 = ComputeArea(nor6);
+Voln7 = ComputeArea(nor7);Voln8 = ComputeArea(nor8);
+Voln9 = ComputeArea(nor9);Voln10 = ComputeArea(nor10);
 Voln12 = ComputeArea(nor12);Voln13 = ComputeArea(nor13);
 Voln15 = ComputeArea(nor15);Voln17 = ComputeArea(nor17);
 Voln18 = ComputeArea(nor18);Voln19 = ComputeArea(nor19);
@@ -52,10 +51,10 @@ Voln50 = ComputeArea(nor50);Voln53 = ComputeArea(nor53);
 Voln55 = ComputeArea(nor55);
 
 %Abnormal heart
-Vola1 = ComputeArea(abnor01);Vola2 = ComputeArea(abnor02);
-Vola5 = ComputeArea(abnor05);Vola6 = ComputeArea(abnor06);
-Vola7 = ComputeArea(abnor07);Vola8 = ComputeArea(abnor08);
-Vola9 = ComputeArea(abnor09);Vola10 = ComputeArea(abnor10);
+Vola1 = ComputeArea(abnor1);Vola2 = ComputeArea(abnor2);
+Vola5 = ComputeArea(abnor5);Vola6 = ComputeArea(abnor6);
+Vola7 = ComputeArea(abnor7);Vola8 = ComputeArea(abnor8);
+Vola9 = ComputeArea(abnor9);Vola10 = ComputeArea(abnor10);
 Vola13 = ComputeArea(abnor13);Vola14 = ComputeArea(abnor14);
 Vola15 = ComputeArea(abnor15);Vola16 = ComputeArea(abnor16);
 Vola18 = ComputeArea(abnor18);Vola19 = ComputeArea(abnor19);
@@ -181,11 +180,11 @@ UEVp = UEAp;
 UESp = UEAp;
 
 % Normal hearts
-[UEAq(5), UEVq(5), UESq(5)] = ComputeMotionBarycenter(nor05);
-[UEAq(6), UEVq(6), UESq(6)] = ComputeMotionBarycenter(nor06);
-[UEAq(7), UEVq(7), UESq(7)] = ComputeMotionBarycenter(nor07);
-[UEAq(8), UEVq(8), UESq(8)] = ComputeMotionBarycenter(nor08);
-[UEAq(9), UEVq(9), UESq(9)] = ComputeMotionBarycenter(nor09);
+[UEAq(5), UEVq(5), UESq(5)] = ComputeMotionBarycenter(nor5);
+[UEAq(6), UEVq(6), UESq(6)] = ComputeMotionBarycenter(nor6);
+[UEAq(7), UEVq(7), UESq(7)] = ComputeMotionBarycenter(nor7);
+[UEAq(8), UEVq(8), UESq(8)] = ComputeMotionBarycenter(nor8);
+[UEAq(9), UEVq(9), UESq(9)] = ComputeMotionBarycenter(nor9);
 [UEAq(10), UEVq(10), UESq(10)] = ComputeMotionBarycenter(nor10);
 [UEAq(12), UEVq(12), UESq(12)] = ComputeMotionBarycenter(nor12);
 [UEAq(13), UEVq(13), UESq(13)] = ComputeMotionBarycenter(nor13);
@@ -210,13 +209,13 @@ UESp = UEAp;
 [UEAq(55), UEVq(55), UESq(55)] = ComputeMotionBarycenter(nor55);
 
 % Abnormal hearts
-[UEAp(1), UEVp(1), UESp(1)] = ComputeMotionBarycenter(abnor01);
-[UEAp(2), UEVp(2), UESp(2)] = ComputeMotionBarycenter(abnor02);
-[UEAp(5), UEVp(5), UESp(5)] = ComputeMotionBarycenter(abnor05);
-[UEAp(6), UEVp(6), UESp(6)] = ComputeMotionBarycenter(abnor06);
-[UEAp(7), UEVp(7), UESp(7)] = ComputeMotionBarycenter(abnor07);
-[UEAp(8), UEVp(8), UESp(8)] = ComputeMotionBarycenter(abnor08);
-[UEAp(9), UEVp(9), UESp(9)] = ComputeMotionBarycenter(abnor09);
+[UEAp(1), UEVp(1), UESp(1)] = ComputeMotionBarycenter(abnor1);
+[UEAp(2), UEVp(2), UESp(2)] = ComputeMotionBarycenter(abnor2);
+[UEAp(5), UEVp(5), UESp(5)] = ComputeMotionBarycenter(abnor5);
+[UEAp(6), UEVp(6), UESp(6)] = ComputeMotionBarycenter(abnor6);
+[UEAp(7), UEVp(7), UESp(7)] = ComputeMotionBarycenter(abnor7);
+[UEAp(8), UEVp(8), UESp(8)] = ComputeMotionBarycenter(abnor8);
+[UEAp(9), UEVp(9), UESp(9)] = ComputeMotionBarycenter(abnor9);
 [UEAp(10), UEVp(10), UESp(10)] = ComputeMotionBarycenter(abnor10);
 [UEAp(13), UEVp(13), UESp(13)] = ComputeMotionBarycenter(abnor13);
 [UEAp(14), UEVp(14), UESp(14)] = ComputeMotionBarycenter(abnor14);

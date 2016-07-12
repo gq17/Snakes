@@ -11,3 +11,16 @@
 %  abnormal hearts
 %  13 
 %  14 the the total view is moving, making the barycenter moves much
+
+
+%  normal hearts
+
+%  1&2  there is not complete contour
+%  3 the top part will disappear
+%  4 there is a big shadow in the middle of the video, making it inaccurate
+%  5 the top left part is not close
+%  11 The top half of the LV will disappear at some time, so not work
+%  14 the bottom right part is not easy to track
+%  16 the top part of LV is blur
+%  21 the left part contour is wrong at some tiome
+%  

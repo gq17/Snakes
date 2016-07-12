@@ -1,10 +1,7 @@
 clear all; close all;
 
 %% Read the vidio, extract the frames/images
-%heartVideo = VideoReader('../FETT4C.avi');
-%heartVideo = VideoReader('../NOBECOURT3cvg.avi');
-%heartVideo = VideoReader('../benis4c.avi');
-heartVideo = VideoReader('../examples/abnormal/35.avi');
+heartVideo = VideoReader('../examples/abnormal/36.avi');
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
@@ -28,8 +25,9 @@ Options.GIterations=200;
 %% Run the snakes algorithm
 img = heartImg(:,:,:,1);
 I=im2double(img);
-Ie = ImgPrc(I(:,:,3));
-figure, imshow(Ie);[y,x] = getpts; 
+I = I(:,:,3);
+%Ie = ImgPrc(I(:,:,3));
+figure, imshow(I);[y,x] = getpts; 
 P=[x(:) y(:)];
 
 % The contour must always be clockwise (because of the balloon force)
@@ -45,11 +43,14 @@ O = zeros(Options.nPoints, 2, frames);
 % flag of the conraction. 1 means systole, -1 means diastole, 0 unsure
 cflag = 1;
 
+% Image Preprocessing by GUO Qiang  22/03/2016
+I = ImgPrc(I, P);
 % Run snakes
 [O(:,:,1),J]=Snake2D(I,P,Options);
 for x = 2:frames
     img = heartImg(:,:,:,x);
     I=im2double(img);
+    I = I(:,:,3);I = ImgPrc(I, P);
     %ImgDiff(:,:,x-1) = rgb2gray(I) - rgb2gray(im2double(heartImg(:,:,:,x-1)));
     [O(:,:,x),J]=Snake2D(I,P,Options);
     %P = O(:,:,x);

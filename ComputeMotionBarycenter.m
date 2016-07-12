@@ -2,6 +2,10 @@ function  [UEA, UEV, UES] = ComputeMotionBarycenter(O)
 % This function wants to observe the movement of the barycenter of the
 % LV. We compute the barycenter at each time
 
+% !!!!!!!!
+% There is an undermined assumption that the video is the normal size of
+% human. It's not expanded.
+
 % UEA = ComputeMotionBarycenter(O)
 
 % Input 
