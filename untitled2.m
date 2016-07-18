@@ -19,19 +19,30 @@
 % end
 
 
-fVol = abs(fft(Voln36));
-figure;
-plot(fVol);
-%[~,lInds] = findpeaks([0 fVol(2:end) 0]);
-[~,lInds] = max([0 fVol(2:end)]);
-cVol = zeros(1,numel(fVol));
-cVol([1 lInds (numel(fVol)+2-lInds)]) = fVol([1 lInds (numel(fVol)+2-lInds)]);
-iVol = abs(ifft(cVol));
-size(iVol)
-figure;
-plot(Voln36);
-hold on
-plot(iVol, 'r')
-hold off
+% fVol = abs(fft(Voln36));
+% figure;
+% plot(fVol);
+% %[~,lInds] = findpeaks([0 fVol(2:end) 0]);
+% [~,lInds] = max([0 fVol(2:end)]);
+% cVol = zeros(1,numel(fVol));
+% cVol([1 lInds (numel(fVol)+2-lInds)]) = fVol([1 lInds (numel(fVol)+2-lInds)]);
+% iVol = abs(ifft(cVol));
+% size(iVol)
+% figure;
+% plot(Voln36);
+% hold on
+% plot(iVol, 'r')
+% hold off
 
+% try the distance
+%load data.mat;
+
+[a, b] = ComputeDistCentral(nor5);
+[a, b] = ComputeDistCentral(nor6);
+[a, b] = ComputeDistCentral(nor7);
+[a, b] = ComputeDistCentral(nor8);
+[a, b] = ComputeDistCentral(abnor5);
+[a, b] = ComputeDistCentral(abnor6);
+[a, b] = ComputeDistCentral(abnor7);
+[a, b] = ComputeDistCentral(abnor8);
 

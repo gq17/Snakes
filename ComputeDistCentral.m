@@ -1,4 +1,4 @@
-function [a, b] = ComputeDistCentral(P)
+function DistArray = ComputeDistCentral(P)
 % This function compute the distance change betwen points and the center of the
 % contour
 
@@ -24,11 +24,11 @@ DistArray = squeeze(DistArray);
 %DistArrayC = DistArray(:,2:size(DistArray,2)) - DistArray(:,1:size(DistArray,2)-1);
 
 % sum of the distance
-%DistSum = sum(abs(DistArrayC));
-%DistSum = sum((DistArrayC).^2);
+% DistSum = sum(abs(DistArrayC));
+% DistSum = sum((DistArrayC).^2);
 
 % Compute the correlation
-CorrArray = corrcoef(DistArray);
+% CorrArray = corrcoef(DistArray);
 % figure
 % %plot(CorrArray(5,:));
 % plot(mean(CorrArray(1:3,:)));
@@ -49,7 +49,7 @@ CorrArray = corrcoef(DistArray);
 % ylabel('Frame', 'FontSize', 18);
 % zlabel('Value', 'FontSize', 18);
 
-a = sum(CorrArray(:)<0.8)/(size(CorrArray,1)^2);
+% a = sum(CorrArray(:)<0.8)/(size(CorrArray,1)^2);
 % % Show the results
 % figure;
 % for i=1:(size(DistArray,2)-1)
@@ -62,7 +62,7 @@ a = sum(CorrArray(:)<0.8)/(size(CorrArray,1)^2);
 %     title(['Central distance change distribution of time: ', num2str(i)]);
 %     pause(1);
 % end
-
+% 
 % Show the mean and variance of the coorelation
 % x = zeros(1,size(CorrArray,1));
 % for i=1:size(CorrArray,1)
