@@ -41,17 +41,17 @@ end
 DistArray = ComputeDistCentral(P);
 dist = sum(DistArray, 2);
 value0 = max(dist);
-lowv = size(dist,1)/4;
-highv = size(dist,1)-lowv;
+lowv = size(P,1)/4;
+highv = size(P,1)-lowv;
 [~, inds1] = min(dist)
 if(inds1<=lowv)
     dist(1:inds1+lowv)=value0+1;
-    dist(inds1+highv:size(dist,1))=value0+1;
+    dist(inds1+highv:size(P,1))=value0+1;
 else if(inds1>highv)
-        dist(inds1-lowv:size(dist,1))=value0+1;
+        dist(inds1-lowv:size(P,1))=value0+1;
         dist(1:inds1-highv)=value0+1;
     else
-        dist(inds1-lowv:inds1+highv)=value0+1;
+        dist(inds1-lowv:inds1+lowv)=value0+1;
     end
 end
 [~, inds2] = min(dist)
@@ -67,9 +67,9 @@ lowv = size(dist,1)/8;
 highv = size(dist,1)-lowv;
 %datas = zeros(2*lowv+1, size(Q ,2));
 if(inds<=lowv)
-    datas = [Q(inds+highv:size(dist,1));Q(1:inds+25)];
+    datas = [Q(inds+highv:size(P,1)); Q(1:inds+25)];
 else if(inds>highv)
-    datas = [Q(inds-lowv:size(dist,1));Q(1:inds-highv)];    
+    datas = [Q(inds-lowv:size(P,1)); Q(1:inds-highv)];    
     else
         datas = Q(inds-lowv:inds+lowv,:);
     end
