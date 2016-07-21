@@ -1,4 +1,4 @@
-function sums = computeCurvature(P)
+function curvatureChange = ComputeCurvature(P)
 % This function compute the curvature of the contour for each point of the
 % contour. This may needs to be improved to get a better precision.
 
@@ -80,7 +80,7 @@ sums = 0;
 for i =1:size(S,1)-1
     sums = sums + S(i,i+1);
 end
-sums = sums/size(S,1);
+curvatureChange = sums/size(S,1);
 
 
 % % Show the results

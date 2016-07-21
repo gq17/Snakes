@@ -1,4 +1,4 @@
-function SimiliarityLR = ComputeAreaLR(P)
+function similiarityLeftRight = ComputeAreaLR(P)
 % This function computes the left and right area changes of the LV, and
 % return their similiarity.
 
@@ -8,7 +8,7 @@ function SimiliarityLR = ComputeAreaLR(P)
 % P: the contour points with coordinates
 
 % Output
-% SimiliarityLR: the ratio between the smallest area and the biggest one
+% similiarityLeftRight: the ratio between the smallest area and the biggest one
 
 % By GUO Qiang 08/06/2016 at ENS
 
@@ -40,10 +40,10 @@ end
 area_left = area_left/max(area_left);  
 area_right = area_right/max(area_right); 
 
-SimiliarityLR = sum((area_left-area_right).^2)/size(area_left,2);
+similiarityLeftRight = sum((area_left-area_right).^2)/size(area_left,2);
 %SimiliarityLR = var(area_left)/var(area_right);
 
-area = area_right/2 + area_left/2;
+% area = area_right/2 + area_left/2;
 % % Show the results
 % figure;
 % plot(area_left, 'b'); 

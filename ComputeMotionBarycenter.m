@@ -1,18 +1,18 @@
-function  [UEA, UEV, UES] = ComputeMotionBarycenter(O)
+function  moveCircleRadius = ComputeMotionBarycenter(O)
 % This function wants to observe the movement of the barycenter of the
-% LV. We compute the barycenter at each time
+% LV. 
 
 % !!!!!!!!
 % There is an undermined assumption that the video is the normal size of
 % human. It's not expanded.
 
-% UEA = ComputeMotionBarycenter(O)
+% moveCircleRadius = ComputeMotionBarycenter(O)
 
 % Input 
 % O: the contour points with coordinates
 
 % Output
-% UEA: the radius of the smallest circle that includes all the barycenters
+% moveCircleRadius: the radius of the smallest circle that includes all the barycenters
 
 % By GUO Qiang 31/03/2016 at ENS
 
@@ -45,12 +45,8 @@ Y = MotionB(2,:);
 [~,radius] = minboundcircle(X,Y, true);
 
 
-%UEA = radius/average_area;
-UEA = radius;
-
-UEV=0;
-UES=0;
-
+%MoveCircleRadius = radius/average_area;
+moveCircleRadius = radius;
 
 
 
