@@ -1,4 +1,4 @@
-function [A, diff] = FreqA(Vol, fre, frate)
+function [A, diff] = FreqA(Vol)
 % Using a cosine function y = Acos(wt+p)+B to fit the curve. Then compute 
 % the difference between the real data and the cosine funtion over the 
 % number of sampling.

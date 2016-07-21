@@ -10,8 +10,6 @@ function DistArray = ComputeDistCentral(P)
 
 % By GUO Qiang 29/03/2016 at ENS 
 
-a=1;
-b=1;
 % Average center of the contour
 cx = mean(mean(P(:,1,:)));
 cy = mean(mean(P(:,2,:)));

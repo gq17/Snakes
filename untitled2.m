@@ -34,15 +34,4 @@
 % plot(iVol, 'r')
 % hold off
 
-% try the distance
-%load data.mat;
-
-[a, b] = ComputeDistCentral(nor5);
-[a, b] = ComputeDistCentral(nor6);
-[a, b] = ComputeDistCentral(nor7);
-[a, b] = ComputeDistCentral(nor8);
-[a, b] = ComputeDistCentral(abnor5);
-[a, b] = ComputeDistCentral(abnor6);
-[a, b] = ComputeDistCentral(abnor7);
-[a, b] = ComputeDistCentral(abnor8);
 

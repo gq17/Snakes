@@ -1,4 +1,4 @@
-function Vol = ComputeArea(P)
+function [A, diff] = ComputeArea(P)
 % This function computes the volume of the heart chamber with the 
 % coordinates of the snake. The current method is coarse and could be
 % improved later.
@@ -32,6 +32,8 @@ end
 
 % Normalization of the volume
 Vol = Vol/max(Vol);  
+
+[A, diff] = FreqA(Vol);
 
 % % Show the results
 % figure;

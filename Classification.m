@@ -5,128 +5,45 @@ clear all; close all;
 % Load data
 load('data.mat');
 
-% % First low apex location for normal hearts
-% Q1 = [0 0 0 0 12 14 15 13 5 13 0 6 10 0 12 0 11 6 12 11 0 0 6 12 6 6 0];  
-% % First low apex location for abnormal hearts
-% P1 = [10 12 0 0 7 16 12 15 44 6 0 0 12 12 11 18 0];
-% Frequency of normal hearts
-freq = [82 76 84 81 85 62 66 55 70 64 ...
-        75 67 100 48 88 72 78 78 100 85 ...
-        61 56 72 73 71 63 99 93 69 85 ...
-        63 73 68 70 89 72 93 91 59 68 ...
-        65 71 60 70 99 78 100 72 78 55 ...
-        104 78 64 81 93]; 
-% Frame rate of normal hearts
-frateq = [0 0 0 0 30 25 30 30 15 25 ...
-          0 15 30 0 30 0 25 15 25 25 ...
-          0 0 15 25 15 15 0 55 52 44 ...
-          57 48 60 55 30 25 25 25 25 58 ...
-          65 25 25 30 25 30 25 58 25 12 ...
-          31 58 25 57 25];
-% Frequency of abnormal hearts
-frep = [103 103 64 69 57 60 60 71 46 85 ...
-        70 136 103 54 92 52 130 136 83 64 ...
-        48 66 53 49 71 94 66 64 109 133 ...
-        78 63 69 56 58 75 93 48];
-% Frame rate of abnormal hearts
-fratep = [25 25 0 0 15 30 30 25 30 15 ...
-          0 0 25 25 30 30 0 57 64 25 ...
-          30 58 58 25 30 25 25 30 25 31 ...
-          25 52 30 25 30 30 25 53];
+% Number of samples
+numNormel = 55;
+numAbnor  = 38;
 
-%Normal hearts
-Voln5 = ComputeArea(nor5);Voln6 = ComputeArea(nor6);
-Voln7 = ComputeArea(nor7);Voln8 = ComputeArea(nor8);
-Voln9 = ComputeArea(nor9);Voln10 = ComputeArea(nor10);
-Voln12 = ComputeArea(nor12);Voln13 = ComputeArea(nor13);
-Voln15 = ComputeArea(nor15);Voln17 = ComputeArea(nor17);
-Voln18 = ComputeArea(nor18);Voln19 = ComputeArea(nor19);
-Voln20 = ComputeArea(nor20);Voln23 = ComputeArea(nor23);
-Voln24 = ComputeArea(nor24);Voln25 = ComputeArea(nor25);
-Voln26 = ComputeArea(nor26);Voln29 = ComputeArea(nor29);
-Voln36 = ComputeArea(nor36);Voln42 = ComputeArea(nor42);
-Voln43 = ComputeArea(nor43);Voln44 = ComputeArea(nor44);
-Voln46 = ComputeArea(nor46);Voln48 = ComputeArea(nor48);
-Voln50 = ComputeArea(nor50);Voln53 = ComputeArea(nor53);
-Voln55 = ComputeArea(nor55);
-
-%Abnormal heart
-Vola1 = ComputeArea(abnor1);Vola2 = ComputeArea(abnor2);
-Vola5 = ComputeArea(abnor5);Vola6 = ComputeArea(abnor6);
-Vola7 = ComputeArea(abnor7);Vola8 = ComputeArea(abnor8);
-Vola9 = ComputeArea(abnor9);Vola10 = ComputeArea(abnor10);
-Vola13 = ComputeArea(abnor13);Vola14 = ComputeArea(abnor14);
-Vola15 = ComputeArea(abnor15);Vola16 = ComputeArea(abnor16);
-Vola18 = ComputeArea(abnor18);Vola19 = ComputeArea(abnor19);
-Vola20 = ComputeArea(abnor20);Vola21 = ComputeArea(abnor21);
-Vola22 = ComputeArea(abnor22);Vola23 = ComputeArea(abnor23);
-Vola25 = ComputeArea(abnor25);Vola26 = ComputeArea(abnor26);
-Vola28 = ComputeArea(abnor28);Vola30 = ComputeArea(abnor30);
-Vola31 = ComputeArea(abnor31);Vola34 = ComputeArea(abnor34);
-Vola35 = ComputeArea(abnor35);Vola37 = ComputeArea(abnor37);
-Vola38 = ComputeArea(abnor38);
-
-
-%% Cosine function fitting
-IUAq = zeros(1, size(freq, 2));
+%% Normal hearts
+IUAq = zeros(1, numNormel);
 IUDq = IUAq;
-[IUAq(5), IUDq(5)] = FreqA(Voln5, freq(5), frateq(5));
-[IUAq(6), IUDq(6)] = FreqA(Voln6, freq(6), frateq(5));
-[IUAq(7), IUDq(7)] = FreqA(Voln7, freq(7), frateq(7));
-[IUAq(8), IUDq(8)] = FreqA(Voln8, freq(8), frateq(8));
-[IUAq(9), IUDq(9)] = FreqA(Voln9, freq(9), frateq(9));
-[IUAq(10), IUDq(10)] = FreqA(Voln10, freq(10), frateq(10));
-[IUAq(12), IUDq(12)] = FreqA(Voln12, freq(12), frateq(12));
-[IUAq(13), IUDq(13)] = FreqA(Voln13, freq(13), frateq(13));
-[IUAq(15), IUDq(15)] = FreqA(Voln15, freq(15), frateq(15));
-[IUAq(17), IUDq(17)] = FreqA(Voln17, freq(17), frateq(17));
-[IUAq(18), IUDq(18)] = FreqA(Voln18, freq(18), frateq(18));
-[IUAq(19), IUDq(19)] = FreqA(Voln19, freq(19), frateq(19));
-[IUAq(20), IUDq(20)] = FreqA(Voln20, freq(20), frateq(20));
-[IUAq(23), IUDq(23)] = FreqA(Voln23, freq(23), frateq(23));
-[IUAq(24), IUDq(24)] = FreqA(Voln24, freq(24), frateq(24));
-[IUAq(25), IUDq(25)] = FreqA(Voln25, freq(25), frateq(25));
-[IUAq(26), IUDq(26)] = FreqA(Voln26, freq(26), frateq(26));
-[IUAq(29), IUDq(29)] = FreqA(Voln29, freq(29), frateq(29));
-[IUAq(36), IUDq(36)] = FreqA(Voln36, freq(36), frateq(36));
-[IUAq(42), IUDq(42)] = FreqA(Voln42, freq(42), frateq(42));
-[IUAq(43), IUDq(43)] = FreqA(Voln43, freq(43), frateq(43));
-[IUAq(44), IUDq(44)] = FreqA(Voln44, freq(44), frateq(44));
-[IUAq(46), IUDq(46)] = FreqA(Voln46, freq(46), frateq(46));
-[IUAq(48), IUDq(48)] = FreqA(Voln48, freq(48), frateq(48));
-[IUAq(50), IUDq(50)] = FreqA(Voln50, freq(50), frateq(50));
-[IUAq(53), IUDq(53)] = FreqA(Voln53, freq(53), frateq(53));
-[IUAq(55), IUDq(55)] = FreqA(Voln55, freq(55), frateq(55));
+[IUAq(5), IUDq(5)] = ComputeArea(nor5);   [IUAq(6), IUDq(6)] = ComputeArea(nor6);
+[IUAq(7), IUDq(7)] = ComputeArea(nor7);   [IUAq(8), IUDq(8)] = ComputeArea(nor8);
+[IUAq(9), IUDq(9)] = ComputeArea(nor9);   [IUAq(10), IUDq(10)] = ComputeArea(nor10);
+[IUAq(12), IUDq(12)] = ComputeArea(nor12);[IUAq(13), IUDq(13)] = ComputeArea(nor13);
+[IUAq(15), IUDq(15)] = ComputeArea(nor15);[IUAq(17), IUDq(17)] = ComputeArea(nor17);
+[IUAq(18), IUDq(18)] = ComputeArea(nor18);[IUAq(19), IUDq(19)] = ComputeArea(nor19);
+[IUAq(20), IUDq(20)] = ComputeArea(nor20);[IUAq(23), IUDq(23)] = ComputeArea(nor23);
+[IUAq(24), IUDq(24)] = ComputeArea(nor24);[IUAq(25), IUDq(25)] = ComputeArea(nor25);
+[IUAq(26), IUDq(26)] = ComputeArea(nor26);[IUAq(29), IUDq(29)] = ComputeArea(nor29);
+[IUAq(36), IUDq(36)] = ComputeArea(nor36);[IUAq(42), IUDq(42)] = ComputeArea(nor42);
+[IUAq(43), IUDq(43)] = ComputeArea(nor43);[IUAq(44), IUDq(44)] = ComputeArea(nor44);
+[IUAq(46), IUDq(46)] = ComputeArea(nor46);[IUAq(48), IUDq(48)] = ComputeArea(nor48);
+[IUAq(50), IUDq(50)] = ComputeArea(nor50);[IUAq(53), IUDq(53)] = ComputeArea(nor53);
+[IUAq(55), IUDq(55)] = ComputeArea(nor55);
 
-IUAp = zeros(1, size(frep, 2));
+% Abnormal heart
+IUAp = zeros(1, numAbnor);
 IUDp = IUAp;
-[IUAp(1), IUDp(1)] = FreqA(Vola1, frep(1), fratep(1));
-[IUAp(2), IUDp(2)] = FreqA(Vola2, frep(2), fratep(2));
-[IUAp(5), IUDp(5)] = FreqA(Vola5, frep(5), fratep(5));
-[IUAp(6), IUDp(6)] = FreqA(Vola6, frep(6), fratep(5));
-[IUAp(7), IUDp(7)] = FreqA(Vola7, frep(7), fratep(7));
-[IUAp(8), IUDp(8)] = FreqA(Vola8, frep(8), fratep(8));
-[IUAp(9), IUDp(9)] = FreqA(Vola9, frep(9), fratep(9));
-[IUAp(10), IUDp(10)] = FreqA(Vola10, frep(10), fratep(10));
-[IUAp(13), IUDp(13)] = FreqA(Vola13, frep(13), fratep(13));
-[IUAp(14), IUDp(14)] = FreqA(Vola14, frep(14), fratep(14));
-[IUAp(15), IUDp(15)] = FreqA(Vola15, frep(15), fratep(15));
-[IUAp(16), IUDp(16)] = FreqA(Vola16, frep(16), fratep(16));
-[IUAp(18), IUDp(18)] = FreqA(Vola18, frep(18), fratep(18));
-[IUAp(19), IUDp(19)] = FreqA(Vola19, frep(19), fratep(19));
-[IUAp(20), IUDp(20)] = FreqA(Vola20, frep(20), fratep(20));
-[IUAp(21), IUDp(21)] = FreqA(Vola21, frep(21), fratep(21));
-[IUAp(22), IUDp(22)] = FreqA(Vola22, frep(22), fratep(22));
-[IUAp(23), IUDp(23)] = FreqA(Vola23, frep(23), fratep(23));
-[IUAp(25), IUDp(25)] = FreqA(Vola25, frep(25), fratep(25));
-[IUAp(26), IUDp(26)] = FreqA(Vola26, frep(26), fratep(26));
-[IUAp(28), IUDp(28)] = FreqA(Vola28, frep(28), fratep(28));
-[IUAp(30), IUDp(30)] = FreqA(Vola30, frep(30), fratep(30));
-[IUAp(31), IUDp(31)] = FreqA(Vola31, frep(31), fratep(31));
-[IUAp(34), IUDp(34)] = FreqA(Vola34, frep(34), fratep(34));
-[IUAp(35), IUDp(35)] = FreqA(Vola35, frep(35), fratep(35));
-[IUAp(37), IUDp(37)] = FreqA(Vola37, frep(37), fratep(37));
-[IUAp(38), IUDp(38)] = FreqA(Vola38, frep(38), fratep(38));
+[IUAp(1), IUDp(1)] = ComputeArea(abnor1);   [IUAp(2), IUDp(2)] = ComputeArea(abnor2);
+[IUAp(5), IUDp(5)] = ComputeArea(abnor5);   [IUAp(6), IUDp(6)] = ComputeArea(abnor6);
+[IUAp(7), IUDp(7)] = ComputeArea(abnor7);   [IUAp(8), IUDp(8)] = ComputeArea(abnor8);
+[IUAp(9), IUDp(9)] = ComputeArea(abnor9);   [IUAp(10), IUDp(10)] = ComputeArea(abnor10);
+[IUAp(13), IUDp(13)] = ComputeArea(abnor13);[IUAp(14), IUDp(14)] = ComputeArea(abnor14);
+[IUAp(15), IUDp(15)] = ComputeArea(abnor15);[IUAp(16), IUDp(16)] = ComputeArea(abnor16);
+[IUAp(18), IUDp(18)] = ComputeArea(abnor18);[IUAp(19), IUDp(19)] = ComputeArea(abnor19);
+[IUAp(20), IUDp(20)] = ComputeArea(abnor20);[IUAp(21), IUDp(21)] = ComputeArea(abnor21);
+[IUAp(22), IUDp(22)] = ComputeArea(abnor22);[IUAp(23), IUDp(23)] = ComputeArea(abnor23);
+[IUAp(25), IUDp(25)] = ComputeArea(abnor25);[IUAp(26), IUDp(26)] = ComputeArea(abnor26);
+[IUAp(28), IUDp(28)] = ComputeArea(abnor28);[IUAp(30), IUDp(30)] = ComputeArea(abnor30);
+[IUAp(31), IUDp(31)] = ComputeArea(abnor31);[IUAp(34), IUDp(34)] = ComputeArea(abnor34);
+[IUAp(35), IUDp(35)] = ComputeArea(abnor35);[IUAp(37), IUDp(37)] = ComputeArea(abnor37);
+[IUAp(38), IUDp(38)] = ComputeArea(abnor38);
 
 
 % Show the results
@@ -142,40 +59,13 @@ IUDp = IUAp;
 % hold off
 % legend('Normal heart', 'Abnormal heart');
 
-
-%% Aligning
-% figure;
-% plot( Voln5(Q1(5):end), 'b');
-% ylim([0, 1.2]);
-% title('The change of area of the LV');
-% xlabel('Frame');
-% ylabel('Normalized area');
-% hold on
-% plot( Vola1(P1(1):end), 'r');
-% legend('Normal heart', 'Abnormal heart');
-% plot( Voln6(Q1(6):end), 'b');plot( Voln7(Q1(7):end), 'b');
-% plot( Voln8(Q1(8):end), 'b');plot( Voln9(Q1(9):end), 'b');
-% plot( Voln10(Q1(10):end), 'b');plot( Voln12(Q1(12):end), 'b');
-% plot( Voln13(Q1(13):end), 'b');plot( Voln15(Q1(15):end), 'b');
-% plot( Voln17(Q1(17):end), 'b');plot( Voln18(Q1(18):end), 'b');
-% plot( Voln19(Q1(19):end), 'b');plot( Voln20(Q1(20):end), 'b');
-% plot( Voln23(Q1(23):end), 'b');plot( Voln24(Q1(24):end), 'b');
-% plot( Voln25(Q1(25):end), 'b');plot( Voln26(Q1(26):end), 'b');
-% plot( Vola2(P1(2):end), 'r');plot( Vola5(P1(5):end), 'r');
-% plot( Vola6(P1(6):end), 'r');plot( Vola7(P1(7):end), 'r');
-% plot( Vola8(P1(8):end), 'r');plot( Vola9(P1(9):end), 'r');
-% plot( Vola10(P1(10):end), 'r');plot( Vola13(P1(13):end), 'r');
-% plot( Vola14(P1(14):end), 'r');plot( Vola15(P1(15):end), 'r');
-% plot( Vola16(P1(16):end), 'r');
-% hold off
-
 %% Barycenter added
 
 % Compute the barycenter
-UEAq = zeros(1,size(freq, 2));
+UEAq = zeros(1,numNormel);
 UEVq = UEAq;
 UESq = UEAq;
-UEAp = zeros(1,size(frep, 2));
+UEAp = zeros(1,numAbnor);
 UEVp = UEAp;
 UESp = UEAp;
 
@@ -251,63 +141,37 @@ UESp = UEAp;
 % legend('Normal heart', 'Abnormal heart');
 
 %% Left and Right area similiarity
-SMLq = zeros(1,size(freq, 2));
-SMLp = zeros(1,size(frep, 2));
+SMLq = zeros(1,numNormel);
+SMLp = zeros(1,numAbnor);
 
-SMLq(5) = ComputeAreaLR(nor05);
-SMLq(6) = ComputeAreaLR(nor06);
-SMLq(7) = ComputeAreaLR(nor07);
-SMLq(8) = ComputeAreaLR(nor08);
-SMLq(9) = ComputeAreaLR(nor09);
-SMLq(10) = ComputeAreaLR(nor10);
-SMLq(12) = ComputeAreaLR(nor12);
-SMLq(13) = ComputeAreaLR(nor13);
-SMLq(15) = ComputeAreaLR(nor15);
-SMLq(17) = ComputeAreaLR(nor17);
-SMLq(18) = ComputeAreaLR(nor18);
-SMLq(19) = ComputeAreaLR(nor19);
-SMLq(20) = ComputeAreaLR(nor20);
-SMLq(23) = ComputeAreaLR(nor23);
-SMLq(24) = ComputeAreaLR(nor24);
-SMLq(25) = ComputeAreaLR(nor25);
-SMLq(26) = ComputeAreaLR(nor26);
-SMLq(29) = ComputeAreaLR(nor29);
-SMLq(36) = ComputeAreaLR(nor36);
-SMLq(42) = ComputeAreaLR(nor42);
-SMLq(43) = ComputeAreaLR(nor43);
-SMLq(44) = ComputeAreaLR(nor44);
-SMLq(46) = ComputeAreaLR(nor46);
-SMLq(48) = ComputeAreaLR(nor48);
-SMLq(50) = ComputeAreaLR(nor50);
-SMLq(53) = ComputeAreaLR(nor53);
+SMLq(5) = ComputeAreaLR(nor5); SMLq(6) = ComputeAreaLR(nor6);
+SMLq(7) = ComputeAreaLR(nor7); SMLq(8) = ComputeAreaLR(nor8);
+SMLq(9) = ComputeAreaLR(nor9); SMLq(10) = ComputeAreaLR(nor10);
+SMLq(12) = ComputeAreaLR(nor12);SMLq(13) = ComputeAreaLR(nor13);
+SMLq(15) = ComputeAreaLR(nor15);SMLq(17) = ComputeAreaLR(nor17);
+SMLq(18) = ComputeAreaLR(nor18);SMLq(19) = ComputeAreaLR(nor19);
+SMLq(20) = ComputeAreaLR(nor20);SMLq(23) = ComputeAreaLR(nor23);
+SMLq(24) = ComputeAreaLR(nor24);SMLq(25) = ComputeAreaLR(nor25);
+SMLq(26) = ComputeAreaLR(nor26);SMLq(29) = ComputeAreaLR(nor29);
+SMLq(36) = ComputeAreaLR(nor36);SMLq(42) = ComputeAreaLR(nor42);
+SMLq(43) = ComputeAreaLR(nor43);SMLq(44) = ComputeAreaLR(nor44);
+SMLq(46) = ComputeAreaLR(nor46);SMLq(48) = ComputeAreaLR(nor48);
+SMLq(50) = ComputeAreaLR(nor50);SMLq(53) = ComputeAreaLR(nor53);
 SMLq(55) = ComputeAreaLR(nor55);
 
-SMLp(1) = ComputeAreaLR(abnor01);
-SMLp(2) = ComputeAreaLR(abnor02);
-SMLp(5) = ComputeAreaLR(abnor05);
-SMLp(6) = ComputeAreaLR(abnor06);
-SMLp(7) = ComputeAreaLR(abnor07);
-SMLp(8) = ComputeAreaLR(abnor08);
-SMLp(9) = ComputeAreaLR(abnor09);
-SMLp(10) = ComputeAreaLR(abnor10);
-SMLp(13) = ComputeAreaLR(abnor13);
-SMLp(14) = ComputeAreaLR(abnor14);
-SMLp(15) = ComputeAreaLR(abnor15);
-SMLp(16) = ComputeAreaLR(abnor16);
-SMLp(18) = ComputeAreaLR(abnor18);
-SMLp(19) = ComputeAreaLR(abnor19);
-SMLp(20) = ComputeAreaLR(abnor20);
-SMLp(21) = ComputeAreaLR(abnor21);
-SMLp(22) = ComputeAreaLR(abnor22);
-SMLp(23) = ComputeAreaLR(abnor23);
-SMLp(25) = ComputeAreaLR(abnor25);
-SMLp(26) = ComputeAreaLR(abnor26);
-SMLp(28) = ComputeAreaLR(abnor28);
-SMLp(30) = ComputeAreaLR(abnor30);
-SMLp(31) = ComputeAreaLR(abnor31);
-SMLp(34) = ComputeAreaLR(abnor34);
-SMLp(35) = ComputeAreaLR(abnor35);
-SMLp(37) = ComputeAreaLR(abnor37);
+SMLp(1) = ComputeAreaLR(abnor1); SMLp(2) = ComputeAreaLR(abnor2);
+SMLp(5) = ComputeAreaLR(abnor5); SMLp(6) = ComputeAreaLR(abnor6);
+SMLp(7) = ComputeAreaLR(abnor7); SMLp(8) = ComputeAreaLR(abnor8);
+SMLp(9) = ComputeAreaLR(abnor9); SMLp(10) = ComputeAreaLR(abnor10);
+SMLp(13) = ComputeAreaLR(abnor13);SMLp(14) = ComputeAreaLR(abnor14);
+SMLp(15) = ComputeAreaLR(abnor15);SMLp(16) = ComputeAreaLR(abnor16);
+SMLp(18) = ComputeAreaLR(abnor18);SMLp(19) = ComputeAreaLR(abnor19);
+SMLp(20) = ComputeAreaLR(abnor20);SMLp(21) = ComputeAreaLR(abnor21);
+SMLp(22) = ComputeAreaLR(abnor22);SMLp(23) = ComputeAreaLR(abnor23);
+SMLp(25) = ComputeAreaLR(abnor25);SMLp(26) = ComputeAreaLR(abnor26);
+SMLp(28) = ComputeAreaLR(abnor28);SMLp(30) = ComputeAreaLR(abnor30);
+SMLp(31) = ComputeAreaLR(abnor31);SMLp(34) = ComputeAreaLR(abnor34);
+SMLp(35) = ComputeAreaLR(abnor35);SMLp(37) = ComputeAreaLR(abnor37);
 SMLp(38) = ComputeAreaLR(abnor38);
 
 

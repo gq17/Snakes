@@ -43,7 +43,7 @@ dist = sum(DistArray, 2);
 value0 = max(dist);
 lowv = size(P,1)/4;
 highv = size(P,1)-lowv;
-[~, inds1] = min(dist)
+[~, inds1] = min(dist);
 if(inds1<=lowv)
     dist(1:inds1+lowv)=value0+1;
     dist(inds1+highv:size(P,1))=value0+1;
@@ -54,7 +54,7 @@ else if(inds1>highv)
         dist(inds1-lowv:inds1+lowv)=value0+1;
     end
 end
-[~, inds2] = min(dist)
+[~, inds2] = min(dist);
 
 if(P(inds2,2,1)<P(inds1,2,1))
     inds = inds2;

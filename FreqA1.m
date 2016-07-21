@@ -1,9 +1,9 @@
-function [A, diff] = FreqA(Vol, fre, frate)
+function [A, diff] = FreqA1(Vol, fre, frate)
 % Using a cosine function y = Acos(wt+p)+B to fit the curve. Then compute 
 % the difference between the real data and the cosine funtion over the 
 % number of sampling.
 
-% diff = FreqA(Vol, fre, frate)
+% diff = FreqA1(Vol, fre, frate)
 
 % Input 
 % Vol: area change sequence
