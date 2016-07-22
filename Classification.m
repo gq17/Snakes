@@ -263,7 +263,6 @@ figure;
 % % This function would be replaced in further release of Matlab
  svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyorder',2,'ShowPlot',true);
 
-% Cross Validation
 % K-fold cross validation
 k=10;
 cvFolds = crossvalind('Kfold', ydata, k);
