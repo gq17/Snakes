@@ -1,8 +1,10 @@
 % classify automatically
 clear all, close all;
 
+%% Ge the contour
 
-%% classification
+
+%% Classification
 
 % Load data
 load heartdata.mat
