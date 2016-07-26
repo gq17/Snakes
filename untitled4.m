@@ -77,3 +77,24 @@
 % ylabel('area', 'FontSize', 18);
 % legend('total area', 'left area', 'right area', 'FontSize', 18);
 % hold off
+
+clear all; close all;
+heartVideo = VideoReader('../examples/abnormal/28.avi');
+heartImg = heartVideo.read();
+img = heartImg(:,:,:,1);
+I=im2double(img);
+I = I(:,:,3);
+%Ie = ImgPrc(I(:,:,3));
+figure, imshow(I);[y,x] = getpts; 
+P=[x(:) y(:)];
+
+% The contour must always be clockwise (because of the balloon force)
+P=MakeContourClockwise2D(P);
+
+% Make an uniform sampled contour description
+P=InterpolateContourPoints2D(P,200);
+Pcopy = P;
+
+% Image Preprocessing by GUO Qiang  22/03/2016
+I = ImgPrc(I, P);
+figure, imshow(I);

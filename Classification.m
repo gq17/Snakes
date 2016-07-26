@@ -69,45 +69,45 @@ ACDp = ACAp;
 % legend('Normal heart', 'Abnormal heart');
 
 %% Compute the barycenter movement
-% MCR: movement circle radius
-MCRq = zeros(numNormel,1);
-MCRp = zeros(numAbnor,1);
+% BMR: barycentre movement radius
+BMRq = zeros(numNormel,1);
+BMRp = zeros(numAbnor,1);
 
 % Normal hearts
-MCRq(5) = ComputeMotionBarycenter(nor5);  MCRq(6) = ComputeMotionBarycenter(nor6);
-MCRq(7) = ComputeMotionBarycenter(nor7);  MCRq(8) = ComputeMotionBarycenter(nor8);
-MCRq(9) = ComputeMotionBarycenter(nor9);  MCRq(10) = ComputeMotionBarycenter(nor10);
-MCRq(12) = ComputeMotionBarycenter(nor12);MCRq(13) = ComputeMotionBarycenter(nor13);
-MCRq(14) = ComputeMotionBarycenter(nor14);
-MCRq(15) = ComputeMotionBarycenter(nor15);MCRq(16) = ComputeMotionBarycenter(nor16);
-MCRq(17) = ComputeMotionBarycenter(nor17);MCRq(18) = ComputeMotionBarycenter(nor18);
-MCRq(19) = ComputeMotionBarycenter(nor19);MCRq(20) = ComputeMotionBarycenter(nor20);
-MCRq(22) = ComputeMotionBarycenter(nor22);MCRq(23) = ComputeMotionBarycenter(nor23);
-MCRq(24) = ComputeMotionBarycenter(nor24);MCRq(25) = ComputeMotionBarycenter(nor25);
-MCRq(26) = ComputeMotionBarycenter(nor26);MCRq(28) = ComputeMotionBarycenter(nor28);
-MCRq(29) = ComputeMotionBarycenter(nor29);MCRq(36) = ComputeMotionBarycenter(nor36);
-MCRq(37) = ComputeMotionBarycenter(nor37);MCRq(38) = ComputeMotionBarycenter(nor38);
-MCRq(40) = ComputeMotionBarycenter(nor40);MCRq(42) = ComputeMotionBarycenter(nor42);
-MCRq(43) = ComputeMotionBarycenter(nor43);MCRq(44) = ComputeMotionBarycenter(nor44);
-MCRq(46) = ComputeMotionBarycenter(nor46);MCRq(48) = ComputeMotionBarycenter(nor48);
-MCRq(50) = ComputeMotionBarycenter(nor50);MCRq(53) = ComputeMotionBarycenter(nor53);
-MCRq(54) = ComputeMotionBarycenter(nor54);MCRq(55) = ComputeMotionBarycenter(nor55);
+BMRq(5) = ComputeMotionBarycenter(nor5);  BMRq(6) = ComputeMotionBarycenter(nor6);
+BMRq(7) = ComputeMotionBarycenter(nor7);  BMRq(8) = ComputeMotionBarycenter(nor8);
+BMRq(9) = ComputeMotionBarycenter(nor9);  BMRq(10) = ComputeMotionBarycenter(nor10);
+BMRq(12) = ComputeMotionBarycenter(nor12);BMRq(13) = ComputeMotionBarycenter(nor13);
+BMRq(14) = ComputeMotionBarycenter(nor14);
+BMRq(15) = ComputeMotionBarycenter(nor15);BMRq(16) = ComputeMotionBarycenter(nor16);
+BMRq(17) = ComputeMotionBarycenter(nor17);BMRq(18) = ComputeMotionBarycenter(nor18);
+BMRq(19) = ComputeMotionBarycenter(nor19);BMRq(20) = ComputeMotionBarycenter(nor20);
+BMRq(22) = ComputeMotionBarycenter(nor22);BMRq(23) = ComputeMotionBarycenter(nor23);
+BMRq(24) = ComputeMotionBarycenter(nor24);BMRq(25) = ComputeMotionBarycenter(nor25);
+BMRq(26) = ComputeMotionBarycenter(nor26);BMRq(28) = ComputeMotionBarycenter(nor28);
+BMRq(29) = ComputeMotionBarycenter(nor29);BMRq(36) = ComputeMotionBarycenter(nor36);
+BMRq(37) = ComputeMotionBarycenter(nor37);BMRq(38) = ComputeMotionBarycenter(nor38);
+BMRq(40) = ComputeMotionBarycenter(nor40);BMRq(42) = ComputeMotionBarycenter(nor42);
+BMRq(43) = ComputeMotionBarycenter(nor43);BMRq(44) = ComputeMotionBarycenter(nor44);
+BMRq(46) = ComputeMotionBarycenter(nor46);BMRq(48) = ComputeMotionBarycenter(nor48);
+BMRq(50) = ComputeMotionBarycenter(nor50);BMRq(53) = ComputeMotionBarycenter(nor53);
+BMRq(54) = ComputeMotionBarycenter(nor54);BMRq(55) = ComputeMotionBarycenter(nor55);
 
 % Abnormal hearts
-MCRp(1) = ComputeMotionBarycenter(abnor1);  MCRp(2) = ComputeMotionBarycenter(abnor2);
-MCRp(5) = ComputeMotionBarycenter(abnor5);  MCRp(6) = ComputeMotionBarycenter(abnor6);
-MCRp(7) = ComputeMotionBarycenter(abnor7);  MCRp(8) = ComputeMotionBarycenter(abnor8);
-MCRp(9) = ComputeMotionBarycenter(abnor9);  MCRp(10) = ComputeMotionBarycenter(abnor10);MCRp(11) = ComputeMotionBarycenter(abnor11);
-MCRp(13) = ComputeMotionBarycenter(abnor13);MCRp(14) = ComputeMotionBarycenter(abnor14);
-MCRp(15) = ComputeMotionBarycenter(abnor15);MCRp(16) = ComputeMotionBarycenter(abnor16);
-MCRp(18) = ComputeMotionBarycenter(abnor18);MCRp(19) = ComputeMotionBarycenter(abnor19);
-MCRp(20) = ComputeMotionBarycenter(abnor20);MCRp(21) = ComputeMotionBarycenter(abnor21);
-MCRp(22) = ComputeMotionBarycenter(abnor22);MCRp(23) = ComputeMotionBarycenter(abnor23);
-MCRp(25) = ComputeMotionBarycenter(abnor25);MCRp(26) = ComputeMotionBarycenter(abnor26);
-MCRp(28) = ComputeMotionBarycenter(abnor28);MCRp(30) = ComputeMotionBarycenter(abnor30);
-MCRp(31) = ComputeMotionBarycenter(abnor31);MCRp(32) = ComputeMotionBarycenter(abnor32);MCRp(34) = ComputeMotionBarycenter(abnor34);
-MCRp(35) = ComputeMotionBarycenter(abnor35);MCRp(37) = ComputeMotionBarycenter(abnor37);
-MCRp(38) = ComputeMotionBarycenter(abnor38);
+BMRp(1) = ComputeMotionBarycenter(abnor1);  BMRp(2) = ComputeMotionBarycenter(abnor2);
+BMRp(5) = ComputeMotionBarycenter(abnor5);  BMRp(6) = ComputeMotionBarycenter(abnor6);
+BMRp(7) = ComputeMotionBarycenter(abnor7);  BMRp(8) = ComputeMotionBarycenter(abnor8);
+BMRp(9) = ComputeMotionBarycenter(abnor9);  BMRp(10) = ComputeMotionBarycenter(abnor10);BMRp(11) = ComputeMotionBarycenter(abnor11);
+BMRp(13) = ComputeMotionBarycenter(abnor13);BMRp(14) = ComputeMotionBarycenter(abnor14);
+BMRp(15) = ComputeMotionBarycenter(abnor15);BMRp(16) = ComputeMotionBarycenter(abnor16);
+BMRp(18) = ComputeMotionBarycenter(abnor18);BMRp(19) = ComputeMotionBarycenter(abnor19);
+BMRp(20) = ComputeMotionBarycenter(abnor20);BMRp(21) = ComputeMotionBarycenter(abnor21);
+BMRp(22) = ComputeMotionBarycenter(abnor22);BMRp(23) = ComputeMotionBarycenter(abnor23);
+BMRp(25) = ComputeMotionBarycenter(abnor25);BMRp(26) = ComputeMotionBarycenter(abnor26);
+BMRp(28) = ComputeMotionBarycenter(abnor28);BMRp(30) = ComputeMotionBarycenter(abnor30);
+BMRp(31) = ComputeMotionBarycenter(abnor31);BMRp(32) = ComputeMotionBarycenter(abnor32);BMRp(34) = ComputeMotionBarycenter(abnor34);
+BMRp(35) = ComputeMotionBarycenter(abnor35);BMRp(37) = ComputeMotionBarycenter(abnor37);
+BMRp(38) = ComputeMotionBarycenter(abnor38);
 
 % Show the results
 % figure;
@@ -223,13 +223,13 @@ normalqueue =   [5 6 7 8 9 10 12 13 14 15 16 17 18 19 20 22 23 24 25 26 28 29 36
 abnormalqueue = [1 2 5 6 7 8 9 10 11 13 14 15 16 18 19 20 21 22 23 25 26 28 30 31 32 34 35 37 38];
 xdataq = [ACAq(normalqueue) ...
           ACDq(normalqueue) ...
-          MCRq(normalqueue) ...
+          BMRq(normalqueue) ...
           SLRq(normalqueue) ...
            CCq(normalqueue) ...
           ];
 xdatap = [ACAp(abnormalqueue) ...
           ACDp(abnormalqueue) ...
-          MCRp(abnormalqueue) ...
+          BMRp(abnormalqueue) ...
           SLRp(abnormalqueue) ...
            CCp(abnormalqueue) ...
           ];

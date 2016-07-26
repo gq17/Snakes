@@ -25,6 +25,8 @@ Options.GIterations=200;
 %% Run the snakes algorithm
 img = heartImg(:,:,:,1);
 I=im2double(img);
+I = I(:,:,3);
+%Ie = ImgPrc(I(:,:,3));
 figure, imshow(I);[y,x] = getpts; 
 P=[x(:) y(:)];
 
@@ -41,11 +43,14 @@ O = zeros(Options.nPoints, 2, frames);
 % flag of the conraction. 1 means systole, -1 means diastole, 0 unsure
 cflag = 1;
 
+% Image Preprocessing by GUO Qiang  22/03/2016
+I = ImgPrc(I, P);
 % Run snakes
 [O(:,:,1),J]=Snake2D(I,P,Options);
 for x = 2:frames
     img = heartImg(:,:,:,x);
     I=im2double(img);
+    I = I(:,:,3);I = ImgPrc(I, P);
     %ImgDiff(:,:,x-1) = rgb2gray(I) - rgb2gray(im2double(heartImg(:,:,:,x-1)));
     [O(:,:,x),J]=Snake2D(I,P,Options);
     %P = O(:,:,x);
@@ -65,6 +70,8 @@ for x = 2:frames
     P(:,1) = interp1(dis,P(:,1),linspace(0,dis(end),floor(size(P,1))));
     P(:,2) = interp1(dis,P(:,2),linspace(0,dis(end),floor(size(P,1))));
 end
+
+contour = O;
 
 %% Linear resampling of the contour
 % n = 1;
@@ -86,7 +93,4 @@ for i = 1:frames
     plot([O(:,2,i);O(1,2,i)],[O(:,1,i);O(1,1,i)],'-','Color',[c 1-c 0]);  drawnow
     pause(1);
 end
-
-contour = O;
-
 

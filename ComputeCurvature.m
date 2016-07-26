@@ -80,7 +80,7 @@ sums = 0;
 for i =1:size(S,1)-1
     sums = sums + S(i,i+1);
 end
-curvatureChange = sums/size(S,1);
+curvatureChange = sums/(size(S,1));
 
 
 % % Show the results

@@ -1,10 +1,10 @@
 % classify automatically
 clear all, close all;
 
-%% Ge the contour
+%% Get the contour
 
 
-%% Classification
+%% Training and Validaion
 
 % Load data
 load heartdata.mat
@@ -39,6 +39,28 @@ end
 xdata = [xdatan; xdataa];
 ydata = [ones(nseqnum,1);zeros(aseqnum,1)];
 
+% Show results
+
+m2 = nseqnum + aseqnum;
+figure;
+plot3(xdata(1:nseqnum,1), xdata(1:nseqnum,2), xdata(1:nseqnum,5), 'o', 'color', 'b');
+title('Heart distribution in 3-D space', 'FontSize', 20);
+h = xlabel('ACA');
+set(h, 'FontSize', 18);
+h = ylabel('ACD');
+set(h, 'FontSize', 18);
+h = zlabel('CC');
+set(h, 'FontSize', 18);
+hold on
+plot3(xdata((nseqnum+1):m2,1), xdata((nseqnum+1):m2,2), xdata((nseqnum+1):m2,5), '*', 'color', 'r');
+hold off
+legend('Normal heart', 'Abnormal heart');
+
+figure;
+% % This function would be replaced in further release of Matlab
+ svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyorder',1,'ShowPlot',true);
+
+
 % K-fold cross validation
 k=10;
 cvFolds = crossvalind('Kfold', ydata, k);
@@ -51,3 +73,4 @@ for i=1:k
     pred = svmclassify(svmModel, xdata(testIdx,[1 2 3 4 5]), 'Showplot',false);
     cp = classperf(cp, pred, testIdx);
 end
+
