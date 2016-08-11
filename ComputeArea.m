@@ -49,5 +49,5 @@ Vol = Vol/max(Vol);
 
 % % FFT of area change
 % fftvol = fft(Vol);
-% figure;plot(abs(fftvol));
+% figure;plot(abs(fftshift(fftvol)));
 % title('Frequence of the area change');

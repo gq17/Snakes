@@ -6,6 +6,7 @@ function Iout = ImgPrc(I, P)
 
 % Input&Output
 % I: input image
+% P: the contour points
 % Iout: output image
 
 

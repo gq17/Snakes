@@ -1,7 +1,7 @@
 clear all; close all;
 
 %% Read the vidio, extract the frames/images
-heartVideo = VideoReader('../examples/abnormal/36.avi');
+heartVideo = VideoReader('../examples/abnormal/7.avi');   % abnormal 28 7 
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 

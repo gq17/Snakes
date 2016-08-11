@@ -56,9 +56,9 @@ plot3(xdata((nseqnum+1):m2,1), xdata((nseqnum+1):m2,2), xdata((nseqnum+1):m2,5),
 hold off
 legend('Normal heart', 'Abnormal heart');
 
+% This function would be replaced in further release of Matlab
 figure;
-% % This function would be replaced in further release of Matlab
- svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyorder',1,'ShowPlot',true);
+svmStruct = svmtrain(xdata(:,[1 5]),ydata, 'kernel_function','polynomial','polyorder', 1,'ShowPlot',true);
 
 
 % K-fold cross validation
@@ -69,8 +69,14 @@ for i=1:k
     testIdx = (cvFolds == i);
     trainIdx = ~testIdx;
     
-    svmModel = svmtrain(xdata(trainIdx,[1 2 3 4 5]),ydata(trainIdx,:), 'kernel_function','polynomial','polyorder',1,'ShowPlot',false);
+    %svmModel = svmtrain(xdata(trainIdx,[1 2 3  5]),ydata(trainIdx,:), 'kernel_function','rbf','rbf_sigma', 0.5,'ShowPlot',false);
+    svmModel = svmtrain(xdata(trainIdx,[1 2 3 4 5]),ydata(trainIdx,:), 'kernel_function', 'polynomial','polyorder', 1,'ShowPlot',false);
     pred = svmclassify(svmModel, xdata(testIdx,[1 2 3 4 5]), 'Showplot',false);
     cp = classperf(cp, pred, testIdx);
 end
+%'polynomial','polyorder',3,
 
+
+%% k-neareat neighbor algorithm
+
+IDx = knnsearch(xdata, xdata(1,:),'K',5);
