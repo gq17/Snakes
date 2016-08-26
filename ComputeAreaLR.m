@@ -8,13 +8,13 @@ function similiarityLeftRight = ComputeAreaLR(P)
 % P: the contour points with coordinates
 
 % Output
-% similiarityLeftRight: the ratio between the smallest area and the biggest one
+% similiarityLeftRight: the ratio between the left area and the right
 
 % By GUO Qiang 08/06/2016 at ENS
 
-% Find the center of the heart
+% Find the geometrical center of the heart
 center_x = mean(mean(P(:,1,:)));
-center_y = mean(mean(P(:,1,:)));
+center_y = mean(mean(P(:,2,:)));
 
 num = size(P);
 n = num(3);
@@ -33,7 +33,7 @@ for i=1:n
             area_right(i) = area_right(i) + temp1*Sine/2;
         end
     end
-    %Vol(i) = Vol(i) + sqrt((P(num(1),1,i)-center_x)^2 + (P(num(1),2,i)-center_y)^2)*sqrt((P(num(1),1,i)-P(num(1)-1,1,i))^2 + (P(num(1),2,i)-P(num(1)-1,2,i))^2)/2;
+
 end
 
 % Normalization of the volume

@@ -1,19 +1,21 @@
 function [A, diff] = ComputeArea(P)
-% This function computes the volume of the heart chamber with the 
-% coordinates of the snake. The current method is coarse and could be
-% improved later.
+% This function computes the area of the heart chamber with the 
+% coordinates of the snake.
 
-% [Rat, Vol] = ComputeArea(P)
+% [A, diff] = ComputeArea(P)
 
 % Input 
 % P: the contour points with coordinates
 
 % Output
-% Vol: the area of the contour
-% Rat: the ratio between the smallest area and the biggest one
+% A: amplitude of the area change function
+% Diff: difference between the original function and the sinusoidal
+% function
 
 % By GUO Qiang 18/03/2016 at ENS
 
+
+% compute the area change
 num = size(P);
 n = num(3);
 Vol = zeros(1, n);
@@ -27,27 +29,30 @@ for i=1:n
         Sine = sqrt(1-(temp2/temp1)^2);
         Vol(i) = Vol(i) + temp1*Sine/2;
     end
-    Vol(i) = Vol(i) + sqrt((P(num(1),1,i)-Cx)^2 + (P(num(1),2,i)-Cy)^2)*sqrt((P(num(1),1,i)-P(num(1)-1,1,i))^2 + (P(num(1),2,i)-P(num(1)-1,2,i))^2)/2;
+    temp1 = sqrt((P(num(1),1,i)-Cx)^2 + (P(num(1),2,i)-Cy)^2)*sqrt((P(num(1),1,i)-P(1,1,i))^2 + (P(num(1),2,i)-P(1,2,i))^2);
+    temp2 = (P(num(1),1,i)-Cx)*(P(num(1),1,i)-P(1,1,i)) + (P(num(1),2,i)-Cy)*(P(num(1),2,i)-P(1,2,i));
+    Sine = sqrt(1-(temp2/temp1)^2);
+    Vol(i) = Vol(i) + temp1*Sine/2;
 end
 
-% Normalization of the volume
+% Normalize the area
 Vol = Vol/max(Vol);  
 
+% decomposation of the function
 [A, diff] = FreqA(Vol);
 
-% % Show the results
+% %Show the results
 % figure;
-% plot(Vol); 
+% plot(Vol,'LineWidth',2); 
 % ylim([0, max(Vol)*1.1]);
-% title('The change of area of the LV');
-% xlabel('The timeline');
-% ylabel('The normalized area');
-% legend('The area change');
+% %title('The change of area of the LV', 'FontSize', 24);
+% h = xlabel('Time');
+% set(h, 'FontSize', 22);
+% h = ylabel('Normalized area');
+% set(h, 'FontSize', 22);
 
-% The ratio between the min and the max
-% Rat = min(Vol)/max(Vol);
-
-% % FFT of area change
+% FFT of area change
 % fftvol = fft(Vol);
 % figure;plot(abs(fftshift(fftvol)));
-% title('Frequence of the area change');
+% title('Frequency of the area change', 'FontSize', 24);
+

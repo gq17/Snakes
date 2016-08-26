@@ -1,16 +1,15 @@
-function curvatureChange = ComputeCurvature(P)
+function curvaturechange = ComputeCurvature(P)
 % This function compute the curvature of the contour for each point of the
 % contour. This may needs to be improved to get a better precision.
 
-% Q = computeCurvature(P, n)
+% curvatureChange = ComputeCurvature(P)
 % Input&Output
 % P: all the contours with their coordinate set
-% n: the resample coefficient
 
-% Q: curvature of all the contours
+% curvaturechange: curvature change of the contour
 
 % By GUO Qiang 25/03/2016 at ENS
-% http://fr.mathworks.com/matlabcentral/newsreader/view_thread/119458
+% reference http://fr.mathworks.com/matlabcentral/newsreader/view_thread/119458
 
 Q = zeros(size(P,1), size(P,3));
 
@@ -80,7 +79,7 @@ sums = 0;
 for i =1:size(S,1)-1
     sums = sums + S(i,i+1);
 end
-curvatureChange = sums/(size(S,1));
+curvaturechange = sums/(size(S,1));
 
 
 % % Show the results

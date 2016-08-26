@@ -1,7 +1,7 @@
-clear all; close all;
+function contour = GetContour(filename)
 
-%% Read the vidio, extract the frames/images
-heartVideo = VideoReader('../examples/abnormal/7.avi');   % abnormal 28 7 
+%% Read the video, extract the frames/images
+heartVideo = VideoReader(filename);
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
 
@@ -40,7 +40,7 @@ Pcopy = P;
 % Preallocate for acceleration
 O = zeros(Options.nPoints, 2, frames);
 
-% flag of the contraction. 1 means systole, -1 means diastole, 0 unsure
+% flag of the conraction. 1 means systole, -1 means diastole, 0 unsure
 cflag = 1;
 
 % Image Preprocessing by GUO Qiang  22/03/2016
@@ -51,10 +51,7 @@ for x = 2:frames
     img = heartImg(:,:,:,x);
     I=im2double(img);
     I = I(:,:,3);I = ImgPrc(I, P);
-    %ImgDiff(:,:,x-1) = rgb2gray(I) - rgb2gray(im2double(heartImg(:,:,:,x-1)));
     [O(:,:,x),J]=Snake2D(I,P,Options);
-    %P = O(:,:,x);
-    %P = clockwiseSnake(P);
     cflag = ComputeState(O, x);
     if(cflag == -1)
         Options.Delta=0.1;
@@ -70,6 +67,8 @@ for x = 2:frames
     P(:,1) = interp1(dis,P(:,1),linspace(0,dis(end),floor(size(P,1))));
     P(:,2) = interp1(dis,P(:,2),linspace(0,dis(end),floor(size(P,1))));
 end
+
+contour = O;
 
 %% Linear resampling of the contour
 % n = 1;
@@ -91,9 +90,4 @@ for i = 1:frames
     plot([O(:,2,i);O(1,2,i)],[O(:,1,i);O(1,1,i)],'-','Color',[c 1-c 0]);  drawnow
     pause(1);
 end
-
-
-
-
-
 

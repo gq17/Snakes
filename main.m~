@@ -111,7 +111,7 @@ end
 
 %% application for new data.
 
-% get the parameters for the test heart video
+% get the parameters of the test heart video
 testcontour = GetContour('../testdata/test.avi');
 testdata = zeros(1,5);
 [testdata(1), testdata(2)] = ComputeArea(testcontour); 
@@ -122,22 +122,11 @@ testdata(5) = ComputeCurvature(testcontour);
 % find the its k-neareat neighbors
 nb=5;
 IDx = knnsearch(xdata, testdata,'K',nb);
-
 % check whether the normal neighbors are more then abnormal neighbors
 % if so, consider it's normal, otherwise abnormal
 heartsign = (sum(IDx<nseqnum)>size(IDx,2)/2);
 
-% validate for the dataset
-j=0;
 for i=1:(nseqnum + aseqnum)
-    IDx = knnsearch(xdata, xdata(i,:),'K',nb);
-    heartsign = (sum(IDx<nseqnum)>size(IDx,2)/2);
-    if(heartsign==1 && i<36)
-        j=j+1;
-    end
-    if(heartsign==0 && i>=36)
-        j=j+1;
-    end
 end
 
 

@@ -3,24 +3,25 @@ function [A, diff] = FreqA(Vol)
 % the difference between the real data and the cosine funtion over the 
 % number of sampling.
 
-% diff = FreqA(Vol, fre, frate)
+% [A, diff] = FreqA(Vol)
 
 % Input 
 % Vol: area change sequence
-% fre: frequency of heart beat
-% frate: frame rate of the video
 
 % Output
-% Diff: difference from a sinusoidal function
+% A: amplitude of the area change function
+% Diff: difference between the original function and the sinusoidal
+% function
 
 % By GUO Qiang 04/07/2016 at ENS
 
 Volb = Vol;
+
+% Ampltitude & Height
 bd = sort(Vol, 'descend');
 ba = sort(Vol);
 up = bd(1+floor(size(Vol,2)/20));
 dow = ba(1+floor(size(Vol,2)/20));
-% Ampltitude & Height
 A = (up-dow)/2;  
 B = (up+dow)/2;
 
@@ -43,7 +44,7 @@ iVol = abs(ifft(cVol));
 %pd = 60*frate/fre;
 [~,iInds] = findpeaks(iVol);
 if(numel(iInds) < 1)
-    disp('The video is too short. Result could be inaccurate!');
+    disp('The heart video is short. Results could be inaccurate!');
 end
 pd = (numel(Vol)-1)/(lInds(1)-1);
 % pd = iInds(2) - iInds(1);
@@ -63,6 +64,7 @@ end
 
 y = A*cos(w*t + p) + B;
 diff = sum((Vol-y).^2)/size(Vol,2);
+
 %diff = diff/A;
 
 % figure;
@@ -74,12 +76,12 @@ diff = sum((Vol-y).^2)/size(Vol,2);
 % plot(y)
 
 % figure;
-% plot(Vol, 'b');
-% title('Area change frequency analyses', 'FontSize', 20);
+% plot(Vol, 'b','LineWidth',2);
+% title('Area change frequency analyses', 'FontSize', 24);
 % h = xlabel('Frame');
-% set(h, 'FontSize', 18);
+% set(h, 'FontSize', 22);
 % h = ylabel('Normalized area');
-% set(h, 'FontSize', 18);
+% set(h, 'FontSize', 22);
 % hold on
 % plot(y, 'r');
 % plot(Vol-y, 'k')

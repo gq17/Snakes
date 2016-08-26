@@ -1,6 +1,6 @@
 function contour = GetContour(filename)
 
-%% Read the vidio, extract the frames/images
+%% Read the video, extract the frames/images
 heartVideo = VideoReader(filename);
 heartImg = heartVideo.read();
 frames = heartVideo.NumberOfFrames;
@@ -46,15 +46,12 @@ cflag = 1;
 % Image Preprocessing by GUO Qiang  22/03/2016
 I = ImgPrc(I, P);
 % Run snakes
-[O(:,:,1),J]=Snake2D(I,P,Options);
+[O(:,:,1),J]=Snake2Dnofigure(I,P,Options);
 for x = 2:frames
     img = heartImg(:,:,:,x);
     I=im2double(img);
     I = I(:,:,3);I = ImgPrc(I, P);
-    %ImgDiff(:,:,x-1) = rgb2gray(I) - rgb2gray(im2double(heartImg(:,:,:,x-1)));
-    [O(:,:,x),J]=Snake2D(I,P,Options);
-    %P = O(:,:,x);
-    %P = clockwiseSnake(P);
+    [O(:,:,x),J]=Snake2Dnofigure(I,P,Options);
     cflag = ComputeState(O, x);
     if(cflag == -1)
         Options.Delta=0.1;
