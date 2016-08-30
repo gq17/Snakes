@@ -46,8 +46,8 @@ moveCircleRadius = radius/average_area;
 % plot(MotionB(1,:), 'r');
 % hold off
 
-figure;
-plot(Coord(1,:),Coord(2,:));
+% figure;
+% plot(Coord(1,:),Coord(2,:));
 
 
 
