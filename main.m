@@ -115,22 +115,24 @@ end
 %% application for new data.
 
 % get the parameters for the test heart video
-% testcontour = GetContour('../testdata/test.avi');
-% testdata = zeros(1,5);
-% [testdata(1), testdata(2)] = ComputeArea(testcontour); 
-% testdata(3) = ComputeMotionBarycenter(testcontour);
-% testdata(4) = ComputeAreaLR(testcontour);
-% testdata(5) = ComputeCurvature(testcontour);
-% 
-% % find the its k-neareat neighbors
-% nb=5;
-% IDx = knnsearch(xdata, testdata,'K',nb);
-% 
-% % check whether the normal neighbors are more then abnormal neighbors
-% % if so, consider it's normal, otherwise abnormal
-% heartsign = (sum(IDx<nseqnum)>size(IDx,2)/2);
-% 
-% % validate for the dataset
+testcontour = GetContour('../testdata/test.avi');
+testdata = zeros(1,5);
+[testdata(1), testdata(2)] = ComputeArea(testcontour); 
+testdata(3) = ComputeMotionBarycenter(testcontour);
+testdata(4) = ComputeAreaLR(testcontour);
+testdata(5) = ComputeCurvature(testcontour);
+
+% find the its k-neareat neighbors
+nb=5;
+IDx = knnsearch(xdata, testdata,'K',nb);
+
+% check whether the normal neighbors are more then abnormal neighbors
+% if so, consider it's normal, otherwise abnormal
+heartsign = (sum(IDx<nseqnum)>size(IDx,2)/2);
+
+
+
+% validate for the dataset
 j=0;
 nb=5;
 for i=1:(nseqnum + aseqnum)
@@ -143,6 +145,9 @@ for i=1:(nseqnum + aseqnum)
         j=j+1;
     end
 end
+
+% compute the correct rate
+correct_rate = j/(nseqnum + aseqnum);
 
 
 
